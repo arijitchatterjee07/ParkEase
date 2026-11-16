@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParkEase Trust & Ops — KYC Verification & NCR Command Center</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="brand-logo admin-accent">P</div>
+        <div>
+          <div class="brand-title-line">
+            <span class="brand-name">ParkEase Trust & Ops</span>
+            <span class="region-pill">NCR Command Center</span>
+          </div>
+          <span class="brand-sub">Supply KYC, RWA NOC Audits & Real-Time Dispute Resolution</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <div class="state-segment" role="group" aria-label="Filter by State">
+          <button class="seg-btn active" data-state="all">All NCR</button>
+          <button class="seg-btn" data-state="DL">New Delhi (DL)</button>
+          <button class="seg-btn" data-state="HR">Haryana (HR)</button>
+        </div>
+
+        <button id="themeToggle" class="theme-switch" role="switch" aria-checked="false" aria-label="Toggle Dark Mode" title="Switch Theme">
+          <span class="theme-track">
+            <span class="theme-icon sun" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </span>
+            <span class="theme-icon moon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </span>
+            <span class="theme-thumb"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <div>
+        <h1>Trust, KYC & Operations</h1>
+        <p class="muted">Active verified network across New Delhi (112 spots) & Haryana (138 spots)</p>
+      </div>
+      <div class="pill-group">
+        <span class="info-pill">No-Show Auto-Release: <strong>15 mins</strong></span>
+        <span class="info-pill">DPDP Plate Masking: <strong>Active</strong></span>
+      </div>
+    </div>
+
+    <!-- Operations KPIs -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Verified NCR Locations</span>
+        <strong class="stat-num" id="verifiedCountKpi">250 Spots</strong>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Pending KYC & NOC Reviews</span>
+        <strong class="stat-num" id="pendingCountKpi">3 Applications</strong>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Active NCR Sessions</span>
+        <strong class="stat-num" id="activeSessionsKpi">4 Live</strong>
+      </div>
+      <div class="stat-card accent">
+        <span class="stat-label">Gate Check-In SLA</span>
+        <strong class="stat-num success">99.4%</strong>
+      </div>
+    </div>
+
+    <div class="two-col-grid">
+      <!-- Pending KYC Queue -->
+      <div class="surface-card">
+        <div class="card-top">
+          <div>
+            <h3>Pending DL & HR Onboarding Queue</h3>
+            <p class="card-sub">Verify Owner PAN, Property Proof & Society RWA NOC before publishing</p>
+          </div>
+          <span class="status-badge">PAN + RWA NOC</span>
+        </div>
+        <div id="approvalQueueList" class="queue-stack"></div>
+      </div>
+
+      <!-- Live NCR Booking Monitor -->
+      <div class="surface-card">
+        <div class="card-top">
+          <div>
+            <h3>Live NCR Booking Monitor</h3>
+            <p class="card-sub">Real-time check-ins, overstays, and instant auto-release overrides</p>
+          </div>
+          <span class="status-badge success">Real-Time</span>
+        </div>
+        <div id="adminBookingsList" class="queue-stack"></div>
+      </div>
+    </div>
+
+    <!-- Recently Approved Live Inventory -->
+    <div class="surface-card">
+      <div class="card-top">
+        <div>
+          <h3>Verified & Published Spaces</h3>
+          <p class="card-sub">Spaces approved and synced to the ParkEase Driver App</p>
+        </div>
+        <span class="status-badge success">Live in Driver App</span>
+      </div>
+      <div id="approvedRegistryList" class="queue-stack"></div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>
