@@ -28,7 +28,6 @@
         <button class="nav-tab active" data-view="driver" data-i18n="nav_driver">Driver App</button>
         <button class="nav-tab" data-view="owner" data-i18n="nav_owner">Owner & Guard</button>
         <button class="nav-tab" data-view="admin" data-i18n="nav_admin">Trust & Ops</button>
-        <button class="nav-tab" data-view="blueprint" data-i18n="nav_blueprint">Roadmap & Stack</button>
       </nav>
 
       <div class="nav-actions">
@@ -278,68 +277,6 @@
             <span class="status-badge success">Real-Time</span>
           </div>
           <div id="adminBookingsList" class="queue-stack"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== VIEW 4: ROADMAP & ARCHITECTURE ==================== -->
-    <section id="view-blueprint" class="view-section">
-      <div class="page-head">
-        <div>
-          <h2>NCR Wedge Strategy & Pan-India Roadmap</h2>
-          <p class="muted">How we dominate Delhi NCR first before scaling nationwide</p>
-        </div>
-      </div>
-
-      <div class="roadmap-grid">
-        <div class="roadmap-card">
-          <span class="step-tag">Phase 0 • Done</span>
-          <h4>NCR Pilot Validation</h4>
-          <p>45 owner spaces in South Delhi & Gurugram validated RWA NOC workflows and QR check-in.</p>
-        </div>
-        <div class="roadmap-card current">
-          <span class="step-tag">Phase 1 • Current (DL & HR)</span>
-          <h4>New Delhi & Haryana Density</h4>
-          <p>250+ verified spots across Saket, CP, AIIMS, Cyber Hub & Faridabad serving cross-border commuters.</p>
-        </div>
-        <div class="roadmap-card">
-          <span class="step-tag">Phase 2 • +6 Months</span>
-          <h4>Full NCR & Metro Cities</h4>
-          <p>Expand into Noida/Ghaziabad (UP), Mumbai, Bengaluru & Hyderabad with UPI AutoPay monthly passes.</p>
-        </div>
-        <div class="roadmap-card">
-          <span class="step-tag">Phase 3 • Nationwide</span>
-          <h4>Pan-India + Smart Gates</h4>
-          <p>15+ states rollout with partner-led FASTag/ANPR boom barriers, dynamic pricing & per-trip insurance.</p>
-        </div>
-      </div>
-
-      <div class="two-col-grid" style="margin-top: 20px;">
-        <div class="surface-card">
-          <h3>Why Start With New Delhi & Haryana?</h3>
-          <ul class="feature-list">
-            <li><strong>High Supply Density:</strong> Concentrating inventory in Delhi–Gurugram commuter corridors prevents empty-map churn.</li>
-            <li><strong>One Cross-Border Pass:</strong> Daily commuters between Delhi and Haryana use a single QR pass at both ends.</li>
-            <li><strong>Long-Tail Supply Moat:</strong> Unlocks builder-floor stilts, RWA visitor bays, and clinic lots without hardware capex.</li>
-          </ul>
-        </div>
-
-        <div class="surface-card">
-          <h3>Production Stack & Atomic Locking</h3>
-          <div class="tags-wrap">
-            <span class="stack-pill">Flutter</span>
-            <span class="stack-pill">Next.js</span>
-            <span class="stack-pill">Node.js / FastAPI</span>
-            <span class="stack-pill">PostgreSQL + PostGIS</span>
-            <span class="stack-pill">Redis</span>
-            <span class="stack-pill">Razorpay Route</span>
-          </div>
-          <pre class="code-block">BEGIN;
-SELECT safe_spot_quota, occupied_slots
-FROM inventory_pools
-WHERE listing_id = $1 AND vehicle_type = $2
-FOR UPDATE; -- Prevents double-booking
-COMMIT;</pre>
         </div>
       </div>
     </section>

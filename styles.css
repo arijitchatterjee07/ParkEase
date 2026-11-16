@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ParkEase NCR â€” Breathable, Uncluttered Light & Dark Theme System
+   ParkEase NCR â€” Clean Product UI (Light & Dark Theme System)
    ========================================================================== */
 :root {
   --bg: #f8fafc;
@@ -191,11 +191,11 @@ body {
 .nav-tab {
   border: none;
   background: transparent;
-  padding: 7px 14px;
+  padding: 7px 16px;
   border-radius: 8px;
   font-family: inherit;
   font-weight: 600;
-  font-size: 0.84rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.18s ease;
@@ -674,7 +674,6 @@ body {
   box-shadow: 0 0 0 4px var(--brand-ring);
 }
 
-/* Top Row: State + Verification + Confidence */
 .spot-top-bar {
   display: flex;
   justify-content: space-between;
@@ -718,7 +717,6 @@ body {
 .conf-tag.reserved { background: var(--reserved-bg); color: var(--reserved-text); }
 .conf-tag.estimated { background: var(--warning-bg); color: var(--warning); }
 
-/* Title & Clean Inline Metadata */
 .spot-name {
   font-size: 1.14rem;
   font-weight: 700;
@@ -754,7 +752,6 @@ body {
   font-weight: 700;
 }
 
-/* Bottom Row: Price & Action with generous separation */
 .spot-footer {
   display: flex;
   justify-content: space-between;
@@ -979,7 +976,7 @@ body {
   line-height: 1.55;
 }
 
-/* ==================== OWNER, ADMIN & ROADMAP VIEWS ==================== */
+/* ==================== OWNER & ADMIN VIEWS ==================== */
 .page-head {
   display: flex;
   justify-content: space-between;
@@ -1215,76 +1212,6 @@ body {
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-}
-
-.roadmap-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-}
-
-.roadmap-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 20px;
-}
-
-.roadmap-card.current {
-  border-color: var(--brand);
-  background: var(--brand-soft);
-}
-
-.step-tag {
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: var(--brand-dark);
-  text-transform: uppercase;
-}
-
-.roadmap-card h4 {
-  margin: 6px 0;
-  font-size: 1rem;
-}
-
-.roadmap-card p {
-  font-size: 0.83rem;
-  color: var(--text-secondary);
-}
-
-.feature-list {
-  padding-left: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-}
-
-.tags-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.stack-pill {
-  background: var(--surface-subtle);
-  padding: 4px 10px;
-  border-radius: 7px;
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-.code-block {
-  background: #020617;
-  border: 1px solid var(--border-strong);
-  color: #e2e8f0;
-  padding: 14px;
-  border-radius: 10px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.76rem;
-  overflow-x: auto;
 }
 
 /* ==================== MODALS ==================== */

@@ -1,5 +1,5 @@
 // ============================================================================
-// ParkEase NCR — Breathable Card Layout + Dark Mode Support
+// ParkEase NCR — Driver App, Owner & Guard Console, Trust & Ops
 // ============================================================================
 
 const i18n = {
@@ -8,7 +8,6 @@ const i18n = {
     nav_driver: "Driver App",
     nav_owner: "Owner & Guard",
     nav_admin: "Trust & Ops",
-    nav_blueprint: "Roadmap & Stack",
     hero_title: "Guaranteed parking in Delhi & Haryana.",
     hero_sub: "Software-verified slots with exact entry-gate pins. Zero hardware delays.",
     active_pass: "QR Pass",
@@ -19,7 +18,6 @@ const i18n = {
     nav_driver: "ड्राइवर ऐप",
     nav_owner: "मालिक और गार्ड",
     nav_admin: "ट्रस्ट और ऑप्स",
-    nav_blueprint: "रोडमैप और स्टैक",
     hero_title: "दिल्ली और हरियाणा में गारंटीड पार्किंग।",
     hero_sub: "सटीक एंट्री-गेट पिन के साथ सत्यापित स्लॉट।",
     active_pass: "QR पास",
