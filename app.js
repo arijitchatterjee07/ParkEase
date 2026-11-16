@@ -1,5 +1,5 @@
 // ============================================================================
-// ParkEase NCR — Clean Interactive Prototype (New Delhi & Haryana)
+// ParkEase NCR — Breathable Card Layout + Dark Mode Support
 // ============================================================================
 
 const i18n = {
@@ -220,6 +220,7 @@ let pendingApprovals = [
 ];
 
 let state = {
+  theme: "light",
   lang: "en",
   vehicleType: "4W",
   vehicleNumber: "HR26 EQ 9012",
@@ -241,11 +242,39 @@ let state = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  initTheme();
   bindNavigation();
   bindFilters();
   bindOwnerActions();
   renderAll();
 });
+
+function initTheme() {
+  const saved = localStorage.getItem("parkease-theme");
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initial = saved || (prefersDark ? "dark" : "light");
+  applyTheme(initial, false);
+
+  const toggleBtn = document.getElementById("themeToggle");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const next = state.theme === "dark" ? "light" : "dark";
+      applyTheme(next, true);
+    });
+  }
+}
+
+function applyTheme(theme, persist = true) {
+  state.theme = theme;
+  document.documentElement.setAttribute("data-theme", theme);
+  const toggleBtn = document.getElementById("themeToggle");
+  if (toggleBtn) {
+    toggleBtn.setAttribute("aria-checked", theme === "dark" ? "true" : "false");
+  }
+  if (persist) {
+    localStorage.setItem("parkease-theme", theme);
+  }
+}
 
 function bindNavigation() {
   document.querySelectorAll(".nav-tab").forEach(tab => {
@@ -425,7 +454,7 @@ function renderListings() {
   });
 
   document.getElementById("resultsCount").textContent =
-    `${filtered.length} verified spot${filtered.length === 1 ? "" : "s"} for ${state.vehicleType}`;
+    `${filtered.length} verified spot${filtered.length === 1 ? "" : "s"} • ${state.vehicleType}`;
 
   if (filtered.length === 0) {
     container.innerHTML = `
@@ -457,23 +486,24 @@ function renderListings() {
     const card = document.createElement("article");
     card.className = `spot-card ${isSelected ? "selected" : ""}`;
     card.innerHTML = `
-      <div class="spot-header">
-        <div>
-          <div class="spot-badges">
-            <span class="state-tag ${spot.state.toLowerCase()}">${spot.stateName.toUpperCase()}</span>
-            <span class="kyc-tag">✔ KYC & NOC</span>
-          </div>
-          <h3 class="spot-name">${spot.title}</h3>
-          <p class="spot-meta">${spot.walkMins} min walk to <strong>${spot.landmark}</strong></p>
+      <div class="spot-top-bar">
+        <div class="spot-badges">
+          <span class="state-tag ${spot.state.toLowerCase()}">${spot.stateName.toUpperCase()}</span>
+          <span class="kyc-tag">✔ KYC & NOC</span>
         </div>
         <span class="conf-tag ${spot.confidence}">${spot.confidenceLabel}</span>
       </div>
 
-      <div class="spot-specs">
-        <span class="spec-pill">${spot.covered ? "Covered" : "Open Air"}</span>
-        <span class="spec-pill">${spot.heightLimit}</span>
-        <span class="spec-pill">CCTV & Guard</span>
-        ${spot.ev ? '<span class="spec-pill">⚡ EV Point</span>' : ""}
+      <h3 class="spot-name">${spot.title}</h3>
+      <p class="spot-meta">${spot.walkMins} min walk to <strong>${spot.landmark}</strong></p>
+
+      <div class="spot-specs-line">
+        <span>${spot.covered ? "Covered" : "Open Air"}</span>
+        <span class="spec-sep">•</span>
+        <span>${spot.heightLimit}</span>
+        <span class="spec-sep">•</span>
+        <span>CCTV & Guard</span>
+        ${spot.ev ? '<span class="spec-sep">•</span><span class="ev-highlight">⚡ EV Charging</span>' : ""}
       </div>
 
       <div class="spot-footer">
@@ -513,8 +543,8 @@ function renderMapPreview() {
   document.getElementById("selectedSpotPreview").innerHTML = `
     <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
       <div>
-        <strong style="font-size:0.98rem;">${spot.title}</strong>
-        <p class="card-sub">${spot.gateCoords} • ${spot.lastUpdated}</p>
+        <strong style="font-size:1rem;">${spot.title}</strong>
+        <p class="card-sub" style="margin-top:2px;">${spot.gateCoords} • ${spot.lastUpdated}</p>
       </div>
       <span class="state-tag ${spot.state.toLowerCase()}">${spot.stateName}</span>
     </div>
