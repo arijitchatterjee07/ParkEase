@@ -6,149 +6,160 @@
   <title>ParkEase NCR — Verified Parking in New Delhi & Haryana</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Top Navigation -->
+  <!-- Clean Glassmorphic Top Navbar -->
   <header class="navbar">
-    <div class="nav-brand">
-      <div class="brand-logo">P</div>
-      <div>
-        <div class="brand-title-line">
-          <span class="brand-name">ParkEase</span>
-          <span class="region-badge">Delhi NCR Pilot (DL & HR)</span>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="brand-logo">P</div>
+        <div>
+          <div class="brand-title-line">
+            <span class="brand-name">ParkEase</span>
+            <span class="region-pill">DL & HR Pilot</span>
+          </div>
+          <span class="brand-sub" data-i18n="tagline">New Delhi & Haryana • Pan-India Next</span>
         </div>
-        <span class="brand-tag" data-i18n="tagline">Live in New Delhi & Haryana • Expanding Pan-India Soon</span>
       </div>
-    </div>
 
-    <nav class="nav-tabs" role="tablist">
-      <button class="nav-tab active" data-view="driver" data-i18n="nav_driver">Driver App</button>
-      <button class="nav-tab" data-view="owner" data-i18n="nav_owner">Owner & Guard</button>
-      <button class="nav-tab" data-view="admin" data-i18n="nav_admin">Trust & Ops</button>
-      <button class="nav-tab" data-view="blueprint" data-i18n="nav_blueprint">NCR Strategy & Stack</button>
-    </nav>
+      <nav class="nav-tabs" role="tablist">
+        <button class="nav-tab active" data-view="driver" data-i18n="nav_driver">Driver App</button>
+        <button class="nav-tab" data-view="owner" data-i18n="nav_owner">Owner & Guard</button>
+        <button class="nav-tab" data-view="admin" data-i18n="nav_admin">Trust & Ops</button>
+        <button class="nav-tab" data-view="blueprint" data-i18n="nav_blueprint">Roadmap & Stack</button>
+      </nav>
 
-    <div class="nav-actions">
-      <div class="vehicle-pill" title="Active Delhi / Haryana Vehicle Profile">
-        <span id="activeVehicleIcon">🚗</span>
-        <select id="globalVehicleSelect" aria-label="Select Vehicle Type">
-          <option value="2W">2W • DL3S DK 4821</option>
-          <option value="4W" selected>4W • HR26 EQ 9012</option>
-          <option value="SUV">SUV • DL8C AX 7741</option>
-          <option value="EV">EV • HR51 EV 1104</option>
-        </select>
+      <div class="nav-actions">
+        <div class="vehicle-selector">
+          <span id="activeVehicleIcon">🚗</span>
+          <select id="globalVehicleSelect" aria-label="Select Vehicle">
+            <option value="2W">2W • DL3S DK 4821</option>
+            <option value="4W" selected>4W • HR26 EQ 9012</option>
+            <option value="SUV">SUV • DL8C AX 7741</option>
+            <option value="EV">EV • HR51 EV 1104</option>
+          </select>
+        </div>
+
+        <button id="langToggle" class="icon-btn" title="Switch Language">हिंदी</button>
+
+        <button id="myPassBtn" class="btn-pass">
+          <span class="pass-dot"></span>
+          <span data-i18n="active_pass">QR Pass</span>
+          <span id="passBadge" class="badge-count hidden">1</span>
+        </button>
       </div>
-      <button id="langToggle" class="btn-outline btn-sm" title="Switch UI Language">हिंदी / EN</button>
-      <button id="myPassBtn" class="btn-primary btn-sm">
-        <span data-i18n="active_pass">QR Pass</span>
-        <span id="passBadge" class="badge-count hidden">1</span>
-      </button>
     </div>
   </header>
 
-  <!-- Regional Phase 1 Banner -->
-  <div class="ncr-banner">
-    <div class="ncr-banner-inner">
-      <span>📍 <strong>Phase 1 Launch Zone:</strong> Exclusively active across <strong>New Delhi (DL)</strong> & <strong>Haryana (Gurugram & Faridabad — HR)</strong> micro-markets.</span>
-      <span class="expansion-pill">🚀 Phase 2 Expansion: UP (Noida), Maharashtra, Karnataka & Pan-India</span>
-    </div>
-  </div>
-
-  <!-- Main Content Container -->
+  <!-- Main Workspace -->
   <main class="container">
 
-    <!-- ==================== VIEW 1: DRIVER APP ==================== -->
+    <!-- ==================== VIEW 1: DRIVER DISCOVERY ==================== -->
     <section id="view-driver" class="view-section active">
-      <!-- Micro-Market & Landmark Search Bar -->
-      <div class="search-hero">
-        <div class="search-header">
+
+      <!-- Sleek Hero & Search Dock -->
+      <div class="hero-card">
+        <div class="hero-top">
           <div>
-            <h1 data-i18n="hero_title">Verified parking across New Delhi & Haryana</h1>
-            <p class="subtitle" data-i18n="hero_sub">Software-verified slots • Exact entry-gate pins • Zero hardware delays</p>
+            <div class="eyebrow">
+              <span class="pulse-dot"></span>
+              <span>PHASE 1 LIVE: NEW DELHI & HARYANA • EXPANDING PAN-INDIA SOON</span>
+            </div>
+            <h1 data-i18n="hero_title">Guaranteed parking in Delhi & Haryana.</h1>
+            <p class="hero-subtitle" data-i18n="hero_sub">Software-verified slots with exact entry-gate pins. Zero hardware delays.</p>
           </div>
-          <div class="micro-market-pills">
-            <span class="pill-label">DL & HR Micro-Markets:</span>
-            <button class="chip active" data-market="all">All NCR Clusters</button>
-            <button class="chip" data-market="dl-south">New Delhi — Saket & Hauz Khas</button>
-            <button class="chip" data-market="dl-central">New Delhi — Connaught Place & AIIMS</button>
-            <button class="chip" data-market="hr-ggn">Haryana — Gurugram Cyber Hub & Medanta</button>
-            <button class="chip" data-market="hr-fbd">Haryana — Faridabad Sector 15</button>
+
+          <!-- State Segmented Switch -->
+          <div class="state-segment" role="group" aria-label="Filter by State">
+            <button class="seg-btn active" data-state="all">All NCR</button>
+            <button class="seg-btn" data-state="DL">New Delhi (DL)</button>
+            <button class="seg-btn" data-state="HR">Haryana (HR)</button>
           </div>
         </div>
 
-        <div class="search-controls">
-          <div class="input-group search-input">
-            <span class="icon">📍</span>
-            <input type="text" id="landmarkSearch" placeholder="Search Delhi/Haryana landmark (e.g., AIIMS Gate 1, Saket Select Citywalk, Cyber Hub, Medanta)..." />
+        <!-- Unified Search & Filter Bar -->
+        <div class="search-dock">
+          <div class="search-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="landmarkSearch" placeholder="Search Saket, AIIMS, Connaught Place, Cyber Hub, Medanta, Faridabad..." />
           </div>
 
-          <div class="filter-group">
-            <select id="stateFilter" aria-label="Filter by State">
-              <option value="all">Both States (DL + HR)</option>
-              <option value="DL">New Delhi (DL)</option>
-              <option value="HR">Haryana (HR)</option>
-            </select>
+          <div class="dock-divider"></div>
 
-            <select id="durationFilter">
-              <option value="hourly">Hourly Pass</option>
-              <option value="daily">Daily Pass</option>
-              <option value="monthly">Monthly Commuter Pass</option>
-            </select>
+          <select id="durationFilter" class="dock-select" aria-label="Pass Duration">
+            <option value="hourly">Hourly Pass</option>
+            <option value="daily">Full-Day Pass</option>
+            <option value="monthly">Monthly Commuter</option>
+          </select>
 
-            <label class="checkbox-chip">
+          <div class="dock-divider"></div>
+
+          <div class="toggle-pills">
+            <label class="pill-toggle">
               <input type="checkbox" id="filterCovered" />
               <span>Covered</span>
             </label>
-            <label class="checkbox-chip">
+            <label class="pill-toggle">
               <input type="checkbox" id="filterEv" />
-              <span>⚡ EV Charger</span>
+              <span>⚡ EV</span>
             </label>
-            <label class="checkbox-chip">
+            <label class="pill-toggle">
               <input type="checkbox" id="filterAvailable" checked />
-              <span>Available Now</span>
+              <span>Available Only</span>
             </label>
           </div>
+        </div>
+
+        <!-- Clean Micro-Market Quick Chips -->
+        <div class="market-bar">
+          <button class="market-chip active" data-market="all">All Hubs (6)</button>
+          <button class="market-chip" data-market="dl-south">Saket & Hauz Khas</button>
+          <button class="market-chip" data-market="dl-central">CP & AIIMS</button>
+          <button class="market-chip" data-market="hr-ggn">Gurugram Cyber Hub & Medanta</button>
+          <button class="market-chip" data-market="hr-fbd">Faridabad Sec-15</button>
         </div>
       </div>
 
-      <!-- Split View: Listings + Interactive Micro-Market Map -->
-      <div class="discovery-grid">
-        <div class="listings-column">
-          <div class="results-meta">
-            <span id="resultsCount">Showing 6 verified NCR spots</span>
-            <span class="confidence-legend">
-              <span class="dot live"></span> Live
-              <span class="dot reserved"></span> Reserved Quota
-              <span class="dot estimated"></span> Estimated
-            </span>
+      <!-- Clean 2-Column Split Workspace -->
+      <div class="workspace-grid">
+        <!-- Left: Uncluttered Spot Cards -->
+        <div class="listings-col">
+          <div class="list-header">
+            <span id="resultsCount" class="results-label">Showing 6 verified spots</span>
+            <div class="legend-inline">
+              <span><i class="dot live"></i>Live</span>
+              <span><i class="dot reserved"></i>Reserved</span>
+              <span><i class="dot estimated"></i>Estimated</span>
+            </div>
           </div>
-          <div id="listingsContainer" class="listings-list"></div>
+          <div id="listingsContainer" class="cards-stack"></div>
         </div>
 
-        <!-- Simulated Interactive Map & Last-100m Inspector -->
-        <aside class="map-column">
-          <div class="map-card">
-            <div class="map-topbar">
-              <span class="map-title">🗺️ Delhi NCR Pin Map (DL & HR)</span>
-              <span class="badge-soft">Gate-Pin Precision</span>
+        <!-- Right: Interactive NCR Map & Selected Gate Inspector -->
+        <aside class="map-col">
+          <div class="map-panel">
+            <div class="map-header">
+              <span class="map-heading">Delhi NCR Live Pin Map</span>
+              <span class="gate-chip">Entry-Gate Precision</span>
             </div>
-            <div class="simulated-map" id="simulatedMap">
-              <!-- State Divider & Regional Labels -->
-              <div class="state-zone zone-dl">NEW DELHI (DL)</div>
-              <div class="state-zone zone-hr">HARYANA (HR)</div>
-              <div class="border-line"></div>
 
-              <!-- Landmark Anchors -->
-              <div class="map-landmark" style="top: 20%; left: 62%;">🏛️ Connaught Place (DL)</div>
-              <div class="map-landmark" style="top: 38%; left: 52%;">🏥 AIIMS / Saket (DL)</div>
-              <div class="map-landmark" style="top: 66%; left: 32%;">🏢 Cyber Hub / Medanta (HR)</div>
-              <div class="map-landmark" style="top: 76%; left: 74%;">🏭 Faridabad Sec-15 (HR)</div>
+            <div class="ncr-canvas" id="simulatedMap">
+              <div class="zone-label dl">NEW DELHI (DL)</div>
+              <div class="zone-label hr">HARYANA (HR)</div>
+              <div class="ncr-border"></div>
+
+              <!-- Subtle Geographic Landmarks -->
+              <div class="landmark-dot" style="top: 19%; left: 66%;">Connaught Place</div>
+              <div class="landmark-dot" style="top: 39%; left: 56%;">AIIMS / Saket</div>
+              <div class="landmark-dot" style="top: 66%; left: 32%;">Cyber Hub</div>
+              <div class="landmark-dot" style="top: 79%; left: 75%;">Faridabad</div>
+
               <div id="mapPinsContainer"></div>
             </div>
-            <div id="selectedSpotPreview" class="spot-preview-box">
-              <!-- Populated dynamically when a spot is selected -->
-            </div>
+
+            <div id="selectedSpotPreview" class="inspector-card"></div>
           </div>
         </aside>
       </div>
@@ -156,279 +167,264 @@
 
     <!-- ==================== VIEW 2: OWNER & GUARD CONSOLE ==================== -->
     <section id="view-owner" class="view-section">
-      <div class="section-header-row">
+      <div class="page-head">
         <div>
-          <h2>NCR Parking Owner & Guard Operations (DL & HR)</h2>
-          <p class="subtitle">Zero-hardware inventory control, offline-capable QR check-in, and split-settlement ledger</p>
+          <h2>Owner & Guard Console</h2>
+          <p class="muted">Zero-hardware slot management, offline basement QR check-in, and T+2 split settlements</p>
         </div>
-        <div class="owner-header-actions">
-          <button id="openOnboardModalBtn" class="btn-primary">+ List Space in Delhi / Haryana (KYC + NOC)</button>
+        <button id="openOnboardModalBtn" class="btn-primary">+ List Space (DL / HR)</button>
+      </div>
+
+      <!-- Clean Top Financial Strip -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">Weekly Gross Bookings</span>
+          <strong class="stat-num" id="ownerGrossKpi">₹18,450</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Platform Fee (15%)</span>
+          <strong class="stat-num danger" id="ownerCommKpi">- ₹2,768</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">GST on Commission (18%)</span>
+          <strong class="stat-num danger" id="ownerGstKpi">- ₹498</strong>
+        </div>
+        <div class="stat-card accent">
+          <span class="stat-label">Net Settled to Bank (T+2)</span>
+          <strong class="stat-num success" id="ownerNetKpi">₹15,184</strong>
         </div>
       </div>
 
-      <div class="owner-grid">
-        <!-- Live Inventory & One-Tap Counter -->
-        <div class="card">
-          <div class="card-header">
-            <h3>1. Slot Quota & Manual Counter</h3>
-            <label class="switch-label">
+      <div class="two-col-grid">
+        <!-- Live Slot Quota -->
+        <div class="surface-card">
+          <div class="card-top">
+            <div>
+              <h3>Slot Quota & Counter</h3>
+              <p class="card-sub">Shanti Niketan RWA Basement B1 • Gurugram (HR)</p>
+            </div>
+            <label class="switch-pill">
               <input type="checkbox" id="emergencyFullToggle" />
-              <span class="switch-text">Mark Lot FULL</span>
+              <span>Lot FULL</span>
             </label>
           </div>
-          <p class="muted-text">Managing: <strong>Shanti Niketan RWA Basement B1 (Gurugram, HR)</strong> — Reserved Inventory + Counter Taps.</p>
-
-          <div id="ownerInventoryControls" class="inventory-controls"></div>
+          <div id="ownerInventoryControls" class="quota-list"></div>
         </div>
 
-        <!-- Guard QR Scanner & Offline Basement Fallback -->
-        <div class="card">
-          <div class="card-header">
-            <h3>2. Guard QR & Basement Code Check-In</h3>
-            <span class="badge-soft success">Offline-First Ready</span>
+        <!-- Guard QR & Offline Code Scanner -->
+        <div class="surface-card">
+          <div class="card-top">
+            <div>
+              <h3>Guard Gate Check-In</h3>
+              <p class="card-sub">Works offline in zero-signal basements via signed QR tokens</p>
+            </div>
+            <span class="status-badge success">Offline Ready</span>
           </div>
-          <p class="muted-text">Delhi & Gurugram basement parkings often lack signal. Signed QR tokens validate locally and sync later.</p>
 
-          <div class="scanner-box">
-            <div class="scanner-frame">
-              <div class="scan-line"></div>
-              <span id="scannerStatusText">Ready to scan driver QR or enter 6-digit fallback code</span>
-            </div>
-            <div class="scanner-inputs">
-              <input type="text" id="manualCodeInput" placeholder="Enter Booking Code (e.g. PE-8492)" />
-              <button id="verifyCheckInBtn" class="btn-primary">Verify Entry / Exit</button>
-            </div>
-            <div class="quick-test-codes">
-              <span>Quick Demo:</span>
-              <button class="btn-link" id="fillActiveCodeBtn">Use Active Pass Code</button>
-            </div>
-            <div id="scanResultLog" class="scan-log"></div>
+          <div class="scanner-viewport">
+            <div class="laser-line"></div>
+            <p>Scan Driver QR Pass or Enter 6-Digit Basement Code</p>
           </div>
-        </div>
 
-        <!-- Split-Settlement Earnings & GST Ledger -->
-        <div class="card full-span">
-          <div class="card-header">
-            <h3>3. Weekly Split-Settlement Earnings (Razorpay Route Model)</h3>
-            <span class="badge-soft">RBI Compliant • T+2 Auto Payout (DL & HR GSTIN Ready)</span>
+          <div class="code-entry-row">
+            <input type="text" id="manualCodeInput" placeholder="e.g. PE-DL-4821" />
+            <button id="verifyCheckInBtn" class="btn-primary">Verify Entry / Exit</button>
           </div>
-          <div class="kpi-row">
-            <div class="kpi-box">
-              <span class="kpi-label">Gross Bookings (This Week)</span>
-              <span class="kpi-val" id="ownerGrossKpi">₹18,450</span>
-            </div>
-            <div class="kpi-box">
-              <span class="kpi-label">Platform Commission (15%)</span>
-              <span class="kpi-val negative" id="ownerCommKpi">- ₹2,768</span>
-            </div>
-            <div class="kpi-box">
-              <span class="kpi-label">GST on Commission (18%)</span>
-              <span class="kpi-val negative" id="ownerGstKpi">- ₹498</span>
-            </div>
-            <div class="kpi-box highlight">
-              <span class="kpi-label">Net Settled to Owner Bank</span>
-              <span class="kpi-val positive" id="ownerNetKpi">₹15,184</span>
-            </div>
+
+          <div class="demo-helper">
+            <span>Demo shortcut:</span>
+            <button class="text-btn" id="fillActiveCodeBtn">Auto-fill active booking code</button>
           </div>
+          <div id="scanResultLog" class="scan-feedback"></div>
         </div>
       </div>
     </section>
 
     <!-- ==================== VIEW 3: ADMIN & TRUST OPS ==================== -->
     <section id="view-admin" class="view-section">
-      <div class="section-header-row">
+      <div class="page-head">
         <div>
-          <h2>NCR Trust, Verification & Compliance Queue</h2>
-          <p class="subtitle">Supply-first quality control across New Delhi & Haryana: RWA NOC checks, Geotagged Gate Photos & DPDP Audit Logs</p>
+          <h2>Trust, KYC & Operations</h2>
+          <p class="muted">Supply verification across New Delhi (112 spots) & Haryana (138 spots)</p>
         </div>
-        <div class="kpi-pills">
-          <span class="stat-pill">New Delhi Supply: <strong>112 Verified</strong></span>
-          <span class="stat-pill">Haryana Supply: <strong>138 Verified</strong></span>
-          <span class="stat-pill">No-Show Release: <strong>15 min</strong></span>
+        <div class="pill-group">
+          <span class="info-pill">No-Show Auto-Release: <strong>15 mins</strong></span>
+          <span class="info-pill">DPDP Data Masking: <strong>Active</strong></span>
         </div>
       </div>
 
-      <div class="admin-grid">
-        <div class="card">
-          <h3>Listing Approval Queue (DL & HR KYC + RWA NOC)</h3>
-          <div id="approvalQueueList" class="queue-list"></div>
+      <div class="two-col-grid">
+        <div class="surface-card">
+          <div class="card-top">
+            <h3>Pending DL & HR Onboarding Queue</h3>
+            <span class="status-badge">PAN + RWA NOC</span>
+          </div>
+          <div id="approvalQueueList" class="queue-stack"></div>
         </div>
 
-        <div class="card">
-          <h3>Live NCR Booking & Dispute Monitor</h3>
-          <div id="adminBookingsList" class="queue-list"></div>
+        <div class="surface-card">
+          <div class="card-top">
+            <h3>Live NCR Booking Monitor</h3>
+            <span class="status-badge success">Real-Time</span>
+          </div>
+          <div id="adminBookingsList" class="queue-stack"></div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== VIEW 4: BLUEPRINT & NCR EXPANSION ==================== -->
+    <!-- ==================== VIEW 4: ROADMAP & ARCHITECTURE ==================== -->
     <section id="view-blueprint" class="view-section">
-      <div class="section-header-row">
+      <div class="page-head">
         <div>
-          <h2>ParkEase NCR Strategy & Pan-India Rollout Plan</h2>
-          <p class="subtitle">Why we start hyper-local in New Delhi & Haryana before scaling across India</p>
+          <h2>NCR Wedge Strategy & Pan-India Roadmap</h2>
+          <p class="muted">How we dominate Delhi NCR first before scaling nationwide</p>
         </div>
       </div>
 
-      <div class="blueprint-grid">
-        <div class="card">
-          <h3>Why Start With New Delhi & Haryana Only?</h3>
-          <ul class="clean-list">
-            <li><strong>Micro-Market Supply Density:</strong> An empty map across 28 states kills trust. Concentrating 250+ verified spots in Saket, CP, AIIMS (Delhi) and Cyber Hub, Medanta, Faridabad (Haryana) guarantees high fill rates.</li>
-            <li><strong>Cross-Border Daily Commuters:</strong> Thousands of daily commuters travel between Delhi and Gurugram/Faridabad—one unified wallet-free QR pass serves both ends of their commute.</li>
-            <li><strong>Long-Tail Supply Moat:</strong> Targets Delhi builder-floor stilts, RWA visitor slots, and Gurugram clinic frontages instead of fighting Park+ on gated malls.</li>
-            <li><strong>Honest Confidence Labels:</strong> Separates <em>Live Hardware</em>, <em>Reserved Quota</em>, and <em>Estimated</em> spots to eliminate "arrived to a full lot" churn.</li>
+      <div class="roadmap-grid">
+        <div class="roadmap-card">
+          <span class="step-tag">Phase 0 • Done</span>
+          <h4>NCR Pilot Validation</h4>
+          <p>45 owner spaces in South Delhi & Gurugram validated RWA NOC workflows and QR check-in.</p>
+        </div>
+        <div class="roadmap-card current">
+          <span class="step-tag">Phase 1 • Current (DL & HR)</span>
+          <h4>New Delhi & Haryana Density</h4>
+          <p>250+ verified spots across Saket, CP, AIIMS, Cyber Hub & Faridabad serving cross-border commuters.</p>
+        </div>
+        <div class="roadmap-card">
+          <span class="step-tag">Phase 2 • +6 Months</span>
+          <h4>Full NCR & Metro Cities</h4>
+          <p>Expand into Noida/Ghaziabad (UP), Mumbai, Bengaluru & Hyderabad with UPI AutoPay monthly passes.</p>
+        </div>
+        <div class="roadmap-card">
+          <span class="step-tag">Phase 3 • Nationwide</span>
+          <h4>Pan-India + Smart Gates</h4>
+          <p>15+ states rollout with partner-led FASTag/ANPR boom barriers, dynamic pricing & per-trip insurance.</p>
+        </div>
+      </div>
+
+      <div class="two-col-grid" style="margin-top: 20px;">
+        <div class="surface-card">
+          <h3>Why Start With New Delhi & Haryana?</h3>
+          <ul class="feature-list">
+            <li><strong>High Supply Density:</strong> Concentrating inventory in Delhi–Gurugram commuter corridors prevents empty-map churn.</li>
+            <li><strong>One Cross-Border Pass:</strong> Daily commuters between Delhi and Haryana use a single QR pass at both ends.</li>
+            <li><strong>Long-Tail Supply Moat:</strong> Unlocks builder-floor stilts, RWA visitor bays, and clinic lots without hardware capex.</li>
           </ul>
         </div>
 
-        <div class="card">
-          <h3>Production Tech Stack</h3>
-          <div class="stack-tags">
-            <span class="tech-tag">Flutter (Android-First)</span>
-            <span class="tech-tag">React / Next.js Web</span>
-            <span class="tech-tag">Node.js (NestJS) / FastAPI</span>
-            <span class="tech-tag">PostgreSQL + PostGIS</span>
-            <span class="tech-tag">Redis + BullMQ</span>
-            <span class="tech-tag">Razorpay Route</span>
-            <span class="tech-tag">Digio / IDfy eKYC</span>
-            <span class="tech-tag">WhatsApp Business API</span>
+        <div class="surface-card">
+          <h3>Production Stack & Atomic Locking</h3>
+          <div class="tags-wrap">
+            <span class="stack-pill">Flutter</span>
+            <span class="stack-pill">Next.js</span>
+            <span class="stack-pill">Node.js / FastAPI</span>
+            <span class="stack-pill">PostgreSQL + PostGIS</span>
+            <span class="stack-pill">Redis</span>
+            <span class="stack-pill">Razorpay Route</span>
           </div>
-          <div class="code-snippet">
-            <div class="code-title">Atomic Inventory Lock (PostgreSQL Transaction)</div>
-            <pre>BEGIN;
+          <pre class="code-block">BEGIN;
 SELECT safe_spot_quota, occupied_slots
 FROM inventory_pools
 WHERE listing_id = $1 AND vehicle_type = $2
-FOR UPDATE; -- Row-level lock prevents double booking
--- Verify overlap & increment occupied_slots
+FOR UPDATE; -- Prevents double-booking
 COMMIT;</pre>
-          </div>
-        </div>
-
-        <div class="card full-span">
-          <h3>Geographic & Product Rollout Roadmap</h3>
-          <div class="roadmap-row">
-            <div class="phase-card">
-              <span class="phase-tag">Phase 0 • Completed</span>
-              <h4>NCR Pilot Validation</h4>
-              <p>Onboarded initial 45 owners in South Delhi & Gurugram via WhatsApp & UPI to validate RWA NOC rules and QR check-in.</p>
-            </div>
-            <div class="phase-card active-phase">
-              <span class="phase-tag">Phase 1 • Current Focus (DL & HR)</span>
-              <h4>New Delhi & Haryana Launch</h4>
-              <p>250+ verified listings across Saket, CP, AIIMS, Gurugram & Faridabad. Software-only QR passes, confidence labels & split payouts.</p>
-            </div>
-            <div class="phase-card">
-              <span class="phase-tag">Phase 2 • Next 6 Months</span>
-              <h4>Full NCR & Metro Expansion</h4>
-              <p>Expand to Noida/Ghaziabad (UP), Mumbai, Bengaluru & Hyderabad with UPI AutoPay monthly passes and corporate parking blocks.</p>
-            </div>
-            <div class="phase-card">
-              <span class="phase-tag">Phase 3 • Pan-India Scale</span>
-              <h4>Tier-1 & Tier-2 India + Partner Hardware</h4>
-              <p>Nationwide rollout across 15+ Indian states with partner-led ANPR/FASTag gates, ML demand pricing & per-booking insurance.</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- ==================== MODAL 1: BOOKING & PRICE BREAKDOWN ==================== -->
+  <!-- ==================== MODAL 1: BOOKING SUMMARY ==================== -->
   <div id="bookingModal" class="modal hidden" role="dialog" aria-modal="true">
     <div class="modal-backdrop" data-close="bookingModal"></div>
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 id="modalSpotTitle">Book Parking Spot</h3>
-        <button class="close-btn" data-close="bookingModal">&times;</button>
+    <div class="modal-sheet">
+      <div class="modal-head">
+        <h3 id="modalSpotTitle">Reserve Parking Slot</h3>
+        <button class="close-x" data-close="bookingModal">&times;</button>
       </div>
-      <div class="modal-body" id="bookingModalBody"></div>
+      <div class="modal-content" id="bookingModalBody"></div>
     </div>
   </div>
 
-  <!-- ==================== MODAL 2: SIGNED DIGITAL QR PASS ==================== -->
+  <!-- ==================== MODAL 2: DIGITAL QR PASS ==================== -->
   <div id="qrPassModal" class="modal hidden" role="dialog" aria-modal="true">
     <div class="modal-backdrop" data-close="qrPassModal"></div>
-    <div class="modal-dialog pass-dialog">
-      <div class="modal-header">
-        <h3>ParkEase Digital Entry Pass (Offline Ready)</h3>
-        <button class="close-btn" data-close="qrPassModal">&times;</button>
+    <div class="modal-sheet">
+      <div class="modal-head">
+        <h3>Digital Entry Pass</h3>
+        <button class="close-x" data-close="qrPassModal">&times;</button>
       </div>
-      <div class="modal-body" id="qrPassBody"></div>
+      <div class="modal-content" id="qrPassBody"></div>
     </div>
   </div>
 
-  <!-- ==================== MODAL 3: OWNER ONBOARDING (DL & HR ONLY FOR NOW) ==================== -->
+  <!-- ==================== MODAL 3: OWNER ONBOARDING ==================== -->
   <div id="onboardModal" class="modal hidden" role="dialog" aria-modal="true">
     <div class="modal-backdrop" data-close="onboardModal"></div>
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3>List Parking Space — New Delhi & Haryana</h3>
-        <button class="close-btn" data-close="onboardModal">&times;</button>
+    <div class="modal-sheet">
+      <div class="modal-head">
+        <h3>List Space (New Delhi & Haryana)</h3>
+        <button class="close-x" data-close="onboardModal">&times;</button>
       </div>
-      <form id="onboardForm" class="modal-body">
+      <form id="onboardForm" class="modal-content">
         <div class="form-grid">
-          <div class="form-field">
-            <label>State / UT (Phase 1 Active Regions)</label>
+          <div class="field">
+            <label>State / UT (Phase 1)</label>
             <select id="newState">
               <option value="DL">New Delhi (DL)</option>
               <option value="HR">Haryana (HR)</option>
-              <option value="OTHER" disabled>Other Indian States (Opening in Phase 2)</option>
+              <option value="OTHER" disabled>Other Indian States (Phase 2)</option>
             </select>
           </div>
-          <div class="form-field">
-            <label>Micro-Market Cluster</label>
+          <div class="field">
+            <label>Micro-Market</label>
             <select id="newMarket">
-              <option value="dl-south">New Delhi — Saket & Hauz Khas</option>
-              <option value="dl-central">New Delhi — Connaught Place & AIIMS</option>
-              <option value="hr-ggn">Haryana — Gurugram Cyber Hub & Medanta</option>
-              <option value="hr-fbd">Haryana — Faridabad Sector 15</option>
+              <option value="dl-south">Saket & Hauz Khas (DL)</option>
+              <option value="dl-central">CP & AIIMS (DL)</option>
+              <option value="hr-ggn">Gurugram Cyber Hub / Medanta (HR)</option>
+              <option value="hr-fbd">Faridabad Sec-15 (HR)</option>
             </select>
           </div>
-          <div class="form-field full-span">
+          <div class="field span-2">
             <label>Space Title & Locality</label>
             <input type="text" id="newTitle" required placeholder="e.g., J-44 Saket Builder Floor Stilt, New Delhi" />
           </div>
-          <div class="form-field">
+          <div class="field">
             <label>Space Type</label>
             <select id="newType">
-              <option value="Builder Floor / Stilt">Builder Floor / Stilt Parking</option>
-              <option value="Society Spare Slot">RWA / Housing Society Spare Slot</option>
+              <option value="Builder Floor / Stilt">Builder Floor / Stilt</option>
+              <option value="Society Spare Slot">RWA Spare Slot</option>
               <option value="Commercial Frontage">Clinic / Market Frontage</option>
             </select>
           </div>
-          <div class="form-field">
+          <div class="field">
             <label>Hourly Rate (₹)</label>
             <input type="number" id="newHourlyRate" value="50" min="10" max="500" required />
           </div>
-          <div class="form-field">
-            <label>Reserved Quota (Slots for ParkEase)</label>
+          <div class="field">
+            <label>Reserved Quota</label>
             <input type="number" id="newSlots" value="2" min="1" max="50" required />
           </div>
-          <div class="form-field">
-            <label>Max Height Clearance</label>
+          <div class="field">
+            <label>Clearance Height</label>
             <input type="text" id="newHeight" value="2.1m (Fits SUV)" required />
           </div>
-          <div class="form-field full-span">
-            <label>Last-100m Gate Entry Instructions</label>
-            <input type="text" id="newInstructions" required placeholder="Enter from Gate 2 beside Metro Pillar; tell guard 'ParkEase'" />
-          </div>
-          <div class="form-field full-span">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="newNocCheck" required checked />
-              <span>RWA / Society NOC & PAN Penny-Drop Verified (DL/HR Jurisdiction)</span>
-            </label>
+          <div class="field span-2">
+            <label>Entry-Gate Instructions</label>
+            <input type="text" id="newInstructions" required placeholder="Enter from Gate 2 beside Metro Pillar; show QR to guard" />
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn-outline" data-close="onboardModal">Cancel</button>
-          <button type="submit" class="btn-primary">Submit to NCR Ops Queue</button>
+        <div class="modal-actions">
+          <button type="button" class="btn-ghost" data-close="onboardModal">Cancel</button>
+          <button type="submit" class="btn-primary">Submit for KYC Approval</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Toast Notification -->
+  <!-- Toast -->
   <div id="toast" class="toast hidden"></div>
 
   <script src="app.js"></script>

@@ -1,61 +1,51 @@
 // ============================================================================
-// ParkEase NCR — Regional Pilot Build (New Delhi & Haryana)
-// Phase 1 Micro-Markets: South/Central Delhi (DL) & Gurugram/Faridabad (HR)
-// Phase 2+ Roadmap: Expanding to UP, Maharashtra, Karnataka & Pan-India
+// ParkEase NCR — Clean Interactive Prototype (New Delhi & Haryana)
 // ============================================================================
 
 const i18n = {
   en: {
-    tagline: "Live in New Delhi & Haryana • Expanding Pan-India Soon",
+    tagline: "New Delhi & Haryana • Pan-India Next",
     nav_driver: "Driver App",
     nav_owner: "Owner & Guard",
     nav_admin: "Trust & Ops",
-    nav_blueprint: "NCR Strategy & Stack",
-    hero_title: "Verified parking across New Delhi & Haryana",
-    hero_sub: "Software-verified slots • Exact entry-gate pins • Zero hardware delays",
+    nav_blueprint: "Roadmap & Stack",
+    hero_title: "Guaranteed parking in Delhi & Haryana.",
+    hero_sub: "Software-verified slots with exact entry-gate pins. Zero hardware delays.",
     active_pass: "QR Pass",
-    book_now: "Instant Book",
-    gate_guidance: "Last-100m Gate Guidance"
+    book_now: "Book Slot"
   },
   hi: {
-    tagline: "नई दिल्ली और हरियाणा में लाइव • जल्द पूरे भारत में विस्तार",
+    tagline: "नई दिल्ली और हरियाणा • जल्द पूरे भारत में",
     nav_driver: "ड्राइवर ऐप",
     nav_owner: "मालिक और गार्ड",
     nav_admin: "ट्रस्ट और ऑप्स",
-    nav_blueprint: "रणनीति और स्टैक",
-    hero_title: "नई दिल्ली और हरियाणा में सत्यापित पार्किंग खोजें",
-    hero_sub: "सत्यापित स्लॉट • सटीक एंट्री-गेट पिन • बिना हार्डवेयर देरी",
+    nav_blueprint: "रोडमैप और स्टैक",
+    hero_title: "दिल्ली और हरियाणा में गारंटीड पार्किंग।",
+    hero_sub: "सटीक एंट्री-गेट पिन के साथ सत्यापित स्लॉट।",
     active_pass: "QR पास",
-    book_now: "तुरंत बुक करें",
-    gate_guidance: "अंतिम 100 मीटर गेट निर्देश"
+    book_now: "बुक करें"
   }
 };
 
-// Verified Micro-Market Supply strictly in New Delhi (DL) & Haryana (HR)
 let listings = [
   {
     id: "PE-DL-101",
     state: "DL",
     stateName: "New Delhi",
-    title: "Saket J-Block Builder Floor Stilt & Courtyard",
+    title: "Saket J-Block Builder Floor Stilt",
     market: "dl-south",
-    type: "Builder Floor / Stilt",
-    landmark: "Select Citywalk & Saket Metro Gate 2",
+    type: "Builder Floor Stilt",
+    landmark: "Select Citywalk & Saket Metro",
     walkMins: 3,
-    driveMins: 2,
     confidence: "reserved",
-    confidenceLabel: "Reserved Inventory (Software)",
-    lastUpdated: "Synced live with booking pool",
-    verified: true,
-    nocVerified: true,
+    confidenceLabel: "Reserved Quota",
+    lastUpdated: "Synced live",
     covered: true,
     ev: true,
-    cctv: true,
-    guard: true,
     heightLimit: "2.15m (Fits SUV)",
     gateCoords: "28.5286° N, 77.2193° E",
-    gateInstructions: "Enter J-Block service lane opposite Saket Metro Gate 2; green sliding gate #44. Show ParkEase QR.",
-    mapPos: { top: "40%", left: "38%" },
+    gateInstructions: "Enter J-Block service lane opposite Saket Metro Gate 2; green sliding gate #44.",
+    mapPos: { top: "40%", left: "34%" },
     rates: { hourly: 60, daily: 260, monthly: 4200 },
     quotas: {
       "2W": { total: 8, occupied: 3 },
@@ -66,27 +56,22 @@ let listings = [
   },
   {
     id: "PE-DL-102",
-    title: "Green Park Ext. Clinic Frontage (Near AIIMS)",
     state: "DL",
     stateName: "New Delhi",
+    title: "Green Park Clinic Frontage (Near AIIMS)",
     market: "dl-central",
-    type: "Clinic / Shop Frontage",
-    landmark: "AIIMS Gate 1 & Safdarjung Hospital",
+    type: "Clinic Frontage",
+    landmark: "AIIMS Gate 1 & Safdarjung",
     walkMins: 4,
-    driveMins: 3,
     confidence: "estimated",
-    confidenceLabel: "Estimated (Likely Available)",
-    lastUpdated: "Owner updated 5 mins ago",
-    verified: true,
-    nocVerified: true,
+    confidenceLabel: "Estimated",
+    lastUpdated: "Updated 5m ago",
     covered: false,
     ev: false,
-    cctv: true,
-    guard: true,
-    heightLimit: "Open Sky (No Height Limit)",
+    heightLimit: "Open Sky",
     gateCoords: "28.5672° N, 77.2100° E",
     gateInstructions: "Turn left at Green Park Main Market red light; park inside yellow-marked clinic bay.",
-    mapPos: { top: "30%", left: "66%" },
+    mapPos: { top: "28%", left: "70%" },
     rates: { hourly: 50, daily: 220, monthly: 3600 },
     quotas: {
       "2W": { total: 10, occupied: 4 },
@@ -97,23 +82,18 @@ let listings = [
   },
   {
     id: "PE-DL-103",
-    title: "Janpath Lane Commercial Rear Lot (CP)",
     state: "DL",
     stateName: "New Delhi",
+    title: "Janpath Lane Rear Commercial Lot",
     market: "dl-central",
-    type: "Small Commercial Lot",
-    landmark: "Connaught Place Outer Circle / Janpath",
+    type: "Commercial Lot",
+    landmark: "Connaught Place Outer Circle",
     walkMins: 3,
-    driveMins: 2,
     confidence: "live",
-    confidenceLabel: "Live (Partner Gate Counter)",
+    confidenceLabel: "Live Counter",
     lastUpdated: "Real-time webhook",
-    verified: true,
-    nocVerified: true,
     covered: false,
     ev: true,
-    cctv: true,
-    guard: true,
     heightLimit: "Open Lot",
     gateCoords: "28.6271° N, 77.2190° E",
     gateInstructions: "Entry from Tolstoy Marg cut towards Janpath; dedicated ParkEase lane on left.",
@@ -128,27 +108,22 @@ let listings = [
   },
   {
     id: "PE-HR-201",
-    title: "Shanti Niketan RWA — Visitor Basement B1 (Gurugram)",
     state: "HR",
     stateName: "Haryana",
+    title: "Shanti Niketan RWA Basement B1",
     market: "hr-ggn",
-    type: "Housing Society Spare Slot",
+    type: "Society Spare Slot",
     landmark: "DLF Cyber Hub Tower B, Gurugram",
     walkMins: 4,
-    driveMins: 3,
     confidence: "reserved",
-    confidenceLabel: "Reserved Inventory (Software)",
-    lastUpdated: "Synced live with booking pool",
-    verified: true,
-    nocVerified: true,
+    confidenceLabel: "Reserved Quota",
+    lastUpdated: "Synced live",
     covered: true,
     ev: true,
-    cctv: true,
-    guard: true,
     heightLimit: "2.15m (Fits SUV)",
     gateCoords: "28.4951° N, 77.0888° E",
-    gateInstructions: "Take service lane behind Tower B; enter via Society Gate 2 (Blue board). Show ParkEase QR to guard.",
-    mapPos: { top: "62%", left: "24%" },
+    gateInstructions: "Take service lane behind Tower B; enter via Society Gate 2 (Blue board).",
+    mapPos: { top: "62%", left: "22%" },
     rates: { hourly: 50, daily: 240, monthly: 3800 },
     quotas: {
       "2W": { total: 10, occupied: 4 },
@@ -159,27 +134,22 @@ let listings = [
   },
   {
     id: "PE-HR-202",
-    title: "CarePlus Diagnostic Courtyard (Sector 38, Gurugram)",
     state: "HR",
     stateName: "Haryana",
+    title: "CarePlus Diagnostic Courtyard (Sec-38)",
     market: "hr-ggn",
-    type: "Clinic / Shop Frontage",
+    type: "Clinic Frontage",
     landmark: "Medanta The Medicity Gate 2, Gurugram",
     walkMins: 2,
-    driveMins: 2,
     confidence: "estimated",
-    confidenceLabel: "Estimated (Likely Available)",
-    lastUpdated: "Owner updated 6 mins ago",
-    verified: true,
-    nocVerified: true,
+    confidenceLabel: "Estimated",
+    lastUpdated: "Updated 6m ago",
     covered: false,
     ev: false,
-    cctv: true,
-    guard: true,
-    heightLimit: "Open Sky (No Height Limit)",
+    heightLimit: "Open Sky",
     gateCoords: "28.4394° N, 77.0412° E",
-    gateInstructions: "Turn left 80m before Medanta Gate 2 traffic light. Park diagonally inside yellow markings.",
-    mapPos: { top: "78%", left: "44%" },
+    gateInstructions: "Turn left 80m before Medanta Gate 2 traffic light. Park inside yellow markings.",
+    mapPos: { top: "79%", left: "44%" },
     rates: { hourly: 40, daily: 180, monthly: 3000 },
     quotas: {
       "2W": { total: 12, occupied: 5 },
@@ -190,27 +160,22 @@ let listings = [
   },
   {
     id: "PE-HR-203",
-    title: "Sector 15 Market Rear Plaza & Stilt (Faridabad)",
     state: "HR",
     stateName: "Haryana",
+    title: "Sector 15 Market Rear Stilt Plaza",
     market: "hr-fbd",
-    type: "Small Commercial Lot",
-    landmark: "Faridabad Sector 15 Market & Metro",
+    type: "Commercial Lot",
+    landmark: "Faridabad Sec-15 Market & Metro",
     walkMins: 3,
-    driveMins: 2,
     confidence: "reserved",
-    confidenceLabel: "Reserved Inventory (Software)",
-    lastUpdated: "Synced live with booking pool",
-    verified: true,
-    nocVerified: true,
+    confidenceLabel: "Reserved Quota",
+    lastUpdated: "Synced live",
     covered: true,
     ev: false,
-    cctv: true,
-    guard: true,
     heightLimit: "2.10m",
     gateCoords: "28.3964° N, 77.3189° E",
     gateInstructions: "Enter from Sector 15A divider road beside Post Office; show ParkEase QR at booth.",
-    mapPos: { top: "68%", left: "78%" },
+    mapPos: { top: "67%", left: "78%" },
     rates: { hourly: 35, daily: 150, monthly: 2500 },
     quotas: {
       "2W": { total: 15, occupied: 6 },
@@ -221,18 +186,17 @@ let listings = [
   }
 ];
 
-// Pending Owner Submissions for NCR Admin Trust Queue
 let pendingApprovals = [
   {
     id: "KYC-DL-304",
     state: "DL",
     stateName: "New Delhi",
     ownerName: "Vikramaditya Kapoor",
-    title: "C-14 Hauz Khas Enclave Ground Stilt, New Delhi",
+    title: "C-14 Hauz Khas Enclave Ground Stilt",
     market: "dl-south",
-    type: "Builder Floor / Stilt",
-    panStatus: "PAN & Penny-Drop Verified",
-    nocStatus: "Hauz Khas RWA NOC Uploaded",
+    type: "Builder Floor Stilt",
+    panStatus: "PAN Verified",
+    nocStatus: "Hauz Khas RWA NOC",
     hourly: 55,
     slots: 2,
     height: "2.1m",
@@ -243,11 +207,11 @@ let pendingApprovals = [
     state: "HR",
     stateName: "Haryana",
     ownerName: "Rajeshwar Malhotra",
-    title: "A-19 Rosewood City Stilt Parking, Gurugram",
+    title: "A-19 Rosewood City Stilt, Gurugram",
     market: "hr-ggn",
-    type: "Housing Society Spare Slot",
-    panStatus: "PAN & Penny-Drop Verified",
-    nocStatus: "Gurugram RWA NOC Uploaded",
+    type: "Society Spare Slot",
+    panStatus: "PAN Verified",
+    nocStatus: "Gurugram RWA NOC",
     hourly: 40,
     slots: 2,
     height: "2.1m",
@@ -255,7 +219,6 @@ let pendingApprovals = [
   }
 ];
 
-// App State
 let state = {
   lang: "en",
   vehicleType: "4W",
@@ -277,9 +240,6 @@ let state = {
   }
 };
 
-// ============================================================================
-// Initialization & Event Listeners
-// ============================================================================
 document.addEventListener("DOMContentLoaded", () => {
   bindNavigation();
   bindFilters();
@@ -299,10 +259,10 @@ function bindNavigation() {
 
   document.getElementById("langToggle").addEventListener("click", () => {
     state.lang = state.lang === "en" ? "hi" : "en";
+    document.getElementById("langToggle").textContent = state.lang === "en" ? "हिंदी" : "EN";
     applyTranslations();
     renderListings();
     renderMapPreview();
-    showToast(state.lang === "hi" ? "भाषा हिंदी में बदली गई" : "Language switched to English");
   });
 
   document.getElementById("globalVehicleSelect").addEventListener("change", (e) => {
@@ -317,7 +277,7 @@ function bindNavigation() {
 
   document.getElementById("myPassBtn").addEventListener("click", () => {
     if (!state.activeBooking) {
-      showToast("No active pass yet. Book a parking spot in Delhi or Haryana first!");
+      showToast("Book a parking slot first to generate your QR pass.");
       return;
     }
     openQrPassModal();
@@ -331,18 +291,22 @@ function bindNavigation() {
 }
 
 function bindFilters() {
-  document.querySelectorAll(".chip[data-market]").forEach(chip => {
-    chip.addEventListener("click", () => {
-      document.querySelectorAll(".chip[data-market]").forEach(c => c.classList.remove("active"));
-      chip.classList.add("active");
-      state.selectedMarket = chip.dataset.market;
+  document.querySelectorAll(".seg-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".seg-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.selectedState = btn.dataset.state;
       renderListings();
     });
   });
 
-  document.getElementById("stateFilter").addEventListener("change", (e) => {
-    state.selectedState = e.target.value;
-    renderListings();
+  document.querySelectorAll(".market-chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      document.querySelectorAll(".market-chip").forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      state.selectedMarket = chip.dataset.market;
+      renderListings();
+    });
   });
 
   document.getElementById("landmarkSearch").addEventListener("input", (e) => {
@@ -376,7 +340,7 @@ function bindOwnerActions() {
   document.getElementById("emergencyFullToggle").addEventListener("change", (e) => {
     state.ownerLotFull = e.target.checked;
     renderAll();
-    showToast(state.ownerLotFull ? "Lot marked FULL across NCR driver map" : "Lot reopened for bookings");
+    showToast(state.ownerLotFull ? "Lot marked FULL across NCR map" : "Lot reopened");
   });
 
   document.getElementById("openOnboardModalBtn").addEventListener("click", () => {
@@ -387,31 +351,30 @@ function bindOwnerActions() {
     e.preventDefault();
     const st = document.getElementById("newState").value;
     const stName = st === "DL" ? "New Delhi" : "Haryana";
-    const newItem = {
+    pendingApprovals.unshift({
       id: `KYC-${st}-${Math.floor(300 + Math.random() * 600)}`,
       state: st,
       stateName: stName,
-      ownerName: "Arijit Chatterjee (Demo Owner)",
+      ownerName: "Arijit Chatterjee",
       title: document.getElementById("newTitle").value,
       market: document.getElementById("newMarket").value,
       type: document.getElementById("newType").value,
-      panStatus: "PAN & Bank Penny-Drop Verified",
-      nocStatus: `${stName} RWA NOC Attached`,
+      panStatus: "PAN Verified",
+      nocStatus: `${stName} RWA NOC`,
       hourly: Number(document.getElementById("newHourlyRate").value),
       slots: Number(document.getElementById("newSlots").value),
       height: document.getElementById("newHeight").value,
       instructions: document.getElementById("newInstructions").value
-    };
-    pendingApprovals.unshift(newItem);
+    });
     document.getElementById("onboardModal").classList.add("hidden");
     e.target.reset();
     renderAdminQueues();
-    showToast(`Submitted ${stName} space to NCR Trust & Ops Queue!`);
+    showToast(`Submitted ${stName} listing to Trust & Ops Queue`);
   });
 
   document.getElementById("fillActiveCodeBtn").addEventListener("click", () => {
     if (!state.activeBooking) {
-      showToast("Book a spot in Driver App first to generate a live code.");
+      showToast("Book a slot in Driver App first.");
       return;
     }
     document.getElementById("manualCodeInput").value = state.activeBooking.fallbackCode;
@@ -420,9 +383,6 @@ function bindOwnerActions() {
   document.getElementById("verifyCheckInBtn").addEventListener("click", handleGuardScan);
 }
 
-// ============================================================================
-// Rendering Functions
-// ============================================================================
 function renderAll() {
   applyTranslations();
   renderListings();
@@ -442,8 +402,7 @@ function applyTranslations() {
 function getAvailableSlots(spot, vehicleType) {
   if (state.ownerLotFull && spot.id === "PE-HR-201") return 0;
   const q = spot.quotas[vehicleType];
-  if (!q) return 0;
-  return Math.max(0, q.total - q.occupied);
+  return q ? Math.max(0, q.total - q.occupied) : 0;
 }
 
 function renderListings() {
@@ -457,29 +416,22 @@ function renderListings() {
     if (state.selectedMarket !== "all" && spot.market !== state.selectedMarket) return false;
     if (state.filterCovered && !spot.covered) return false;
     if (state.filterEv && !spot.ev) return false;
-    const avail = getAvailableSlots(spot, state.vehicleType);
-    if (state.filterAvailable && avail <= 0) return false;
+    if (state.filterAvailable && getAvailableSlots(spot, state.vehicleType) <= 0) return false;
     if (state.searchQuery) {
-      const hay = `${spot.title} ${spot.landmark} ${spot.stateName} ${spot.gateInstructions}`.toLowerCase();
+      const hay = `${spot.title} ${spot.landmark} ${spot.stateName}`.toLowerCase();
       if (!hay.includes(state.searchQuery)) return false;
     }
     return true;
   });
 
-  const regionText = state.selectedState === "DL"
-    ? "New Delhi (DL)"
-    : state.selectedState === "HR"
-      ? "Haryana (HR)"
-      : "New Delhi & Haryana";
-
   document.getElementById("resultsCount").textContent =
-    `Showing ${filtered.length} verified spot${filtered.length === 1 ? "" : "s"} in ${regionText} for ${state.vehicleType}`;
+    `${filtered.length} verified spot${filtered.length === 1 ? "" : "s"} for ${state.vehicleType}`;
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div class="card">
-        <h3>No matching slots in ${regionText} for ${state.vehicleType}</h3>
-        <p class="muted-text">Try switching state filter (DL / HR), vehicle type, or unchecking filters.</p>
+      <div class="surface-card">
+        <h3>No matching slots found</h3>
+        <p class="card-sub">Try resetting your state, micro-market, or vehicle filters.</p>
       </div>`;
     return;
   }
@@ -487,10 +439,9 @@ function renderListings() {
   filtered.forEach(spot => {
     const avail = getAvailableSlots(spot, state.vehicleType);
     const rate = spot.rates[state.duration];
-    const unitLabel = state.duration === "hourly" ? "/hr" : state.duration === "daily" ? "/day" : "/mo";
+    const unit = state.duration === "hourly" ? "/hr" : state.duration === "daily" ? "/day" : "/mo";
     const isSelected = spot.id === state.selectedSpotId;
 
-    // Render Map Pin
     const pin = document.createElement("button");
     pin.className = `map-pin ${isSelected ? "active" : ""}`;
     pin.style.top = spot.mapPos.top;
@@ -503,43 +454,36 @@ function renderListings() {
     });
     pinsContainer.appendChild(pin);
 
-    // Render Card
     const card = document.createElement("article");
     card.className = `spot-card ${isSelected ? "selected" : ""}`;
     card.innerHTML = `
-      <div class="spot-top">
+      <div class="spot-header">
         <div>
-          <div class="spot-title-row">
-            <span class="state-pill state-${spot.state.toLowerCase()}">${spot.stateName.toUpperCase()} (${spot.state})</span>
-            <span class="spot-title">${spot.title}</span>
-            <span class="verified-badge">✔ KYC + NOC</span>
+          <div class="spot-badges">
+            <span class="state-tag ${spot.state.toLowerCase()}">${spot.stateName.toUpperCase()}</span>
+            <span class="kyc-tag">✔ KYC & NOC</span>
           </div>
-          <div class="spot-sub">
-            🚶 ${spot.walkMins} min walk to <strong>${spot.landmark}</strong> • 🚗 ${spot.driveMins} min drive • ${spot.type}
-          </div>
+          <h3 class="spot-name">${spot.title}</h3>
+          <p class="spot-meta">${spot.walkMins} min walk to <strong>${spot.landmark}</strong></p>
         </div>
-        <span class="confidence-pill conf-${spot.confidence}">${spot.confidenceLabel}</span>
+        <span class="conf-tag ${spot.confidence}">${spot.confidenceLabel}</span>
       </div>
 
-      <div class="spot-tags">
-        <span class="tag">${spot.covered ? "🏠 Covered" : "☀️ Open"}</span>
-        <span class="tag">📏 ${spot.heightLimit}</span>
-        ${spot.cctv ? '<span class="tag">📹 CCTV</span>' : ""}
-        ${spot.guard ? '<span class="tag">💂 Guard QR</span>' : ""}
-        ${spot.ev ? '<span class="tag">⚡ EV Point</span>' : ""}
+      <div class="spot-specs">
+        <span class="spec-pill">${spot.covered ? "Covered" : "Open Air"}</span>
+        <span class="spec-pill">${spot.heightLimit}</span>
+        <span class="spec-pill">CCTV & Guard</span>
+        ${spot.ev ? '<span class="spec-pill">⚡ EV Point</span>' : ""}
       </div>
 
-      <div class="gate-callout">
-        <strong>🚪 ${i18n[state.lang].gate_guidance}:</strong> ${spot.gateInstructions}
-      </div>
-
-      <div class="spot-bottom">
-        <div class="price-block">
-          <strong>₹${rate}</strong><span>${unitLabel}</span>
+      <div class="spot-footer">
+        <div class="price-wrap">
+          <span class="price-amt">₹${rate}</span>
+          <span class="price-unit">${unit}</span>
         </div>
-        <div>
-          <span class="slot-status ${avail > 2 ? "ok" : avail > 0 ? "low" : "full"}">
-            ${avail > 0 ? `${avail} ${state.vehicleType} slots free` : "Full"}
+        <div class="book-cluster">
+          <span class="avail-text ${avail > 2 ? "ok" : avail > 0 ? "low" : "full"}">
+            ${avail > 0 ? `${avail} free` : "Full"}
           </span>
           <button class="btn-primary btn-sm book-trigger" data-id="${spot.id}" ${avail === 0 ? "disabled" : ""}>
             ${i18n[state.lang].book_now}
@@ -564,33 +508,30 @@ function renderListings() {
 
 function renderMapPreview() {
   const spot = listings.find(s => s.id === state.selectedSpotId) || listings[0];
-  const preview = document.getElementById("selectedSpotPreview");
   const avail = getAvailableSlots(spot, state.vehicleType);
 
-  preview.innerHTML = `
-    <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
-      <strong>${spot.title}</strong>
-      <span class="state-pill state-${spot.state.toLowerCase()}">${spot.stateName}</span>
+  document.getElementById("selectedSpotPreview").innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+      <div>
+        <strong style="font-size:0.98rem;">${spot.title}</strong>
+        <p class="card-sub">${spot.gateCoords} • ${spot.lastUpdated}</p>
+      </div>
+      <span class="state-tag ${spot.state.toLowerCase()}">${spot.stateName}</span>
     </div>
-    <p class="spot-sub" style="margin-top:4px;">Gate GPS: ${spot.gateCoords} • ${spot.lastUpdated}</p>
-    <div class="gate-banner">
-      <strong>📍 Entry Gate Pin (Separate from Building):</strong><br/>
-      ${spot.gateInstructions}
+
+    <div class="gate-note">
+      <strong>Last-100m Gate Pin:</strong> ${spot.gateInstructions}
     </div>
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-      <span class="slot-status ${avail > 0 ? "ok" : "full"}">
-        ${avail} ${state.vehicleType} slots available
-      </span>
+
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <span class="avail-text ${avail > 0 ? "ok" : "full"}">${avail} ${state.vehicleType} slots available</span>
       <button class="btn-primary btn-sm" onclick="openBookingModal('${spot.id}')" ${avail === 0 ? "disabled" : ""}>
-        Reserve with UPI Intent
+        Reserve Now
       </button>
     </div>
   `;
 }
 
-// ============================================================================
-// Booking Flow & Signed Offline QR Pass
-// ============================================================================
 window.openBookingModal = function(spotId) {
   const spot = listings.find(s => s.id === spotId);
   if (!spot) return;
@@ -600,28 +541,23 @@ window.openBookingModal = function(spotId) {
   const gst = Math.round(platformFee * 0.18);
   const total = basePrice + platformFee + gst;
 
-  document.getElementById("modalSpotTitle").textContent = `Confirm ${state.vehicleType} Pass — ${spot.stateName}`;
+  document.getElementById("modalSpotTitle").textContent = `Book ${state.vehicleType} Slot • ${spot.stateName}`;
   document.getElementById("bookingModalBody").innerHTML = `
-    <div class="gate-callout">
-      <strong>Location:</strong> ${spot.title} (${spot.stateName})<br/>
-      <strong>Gate Pin:</strong> ${spot.gateCoords}<br/>
-      <strong>Vehicle:</strong> ${state.vehicleType} (${state.vehicleNumber}) • <strong>Clearance:</strong> ${spot.heightLimit}
+    <p style="font-weight:700; font-size:0.96rem;">${spot.title}</p>
+    <p class="card-sub">Vehicle: ${state.vehicleType} (${state.vehicleNumber}) • ${spot.heightLimit}</p>
+
+    <div class="bill-box">
+      <div class="bill-row"><span>Parking Tariff (${state.duration})</span><span>₹${basePrice}</span></div>
+      <div class="bill-row"><span>Platform Convenience Fee</span><span>₹${platformFee}</span></div>
+      <div class="bill-row"><span>GST (18% on fee)</span><span>₹${gst}</span></div>
+      <div class="bill-row total"><span>Total Payable via UPI</span><span>₹${total}</span></div>
     </div>
 
-    <div class="price-summary">
-      <div class="price-row"><span>Parking Tariff (${state.duration})</span><span>₹${basePrice}</span></div>
-      <div class="price-row"><span>Platform Convenience Fee</span><span>₹${platformFee}</span></div>
-      <div class="price-row"><span>GST (18% on fee)</span><span>₹${gst}</span></div>
-      <div class="price-row total"><span>Total Payable via UPI</span><span>₹${total}</span></div>
-    </div>
+    <p class="card-sub">Free cancellation up to 60 mins prior • 15-min no-show grace period.</p>
 
-    <p class="muted-text">
-      • Free cancellation up to 60 mins before start • 15-min no-show grace period • Split-settled directly via Razorpay Route.
-    </p>
-
-    <div class="modal-footer">
-      <button class="btn-outline" data-close="bookingModal">Cancel</button>
-      <button class="btn-primary" id="confirmUpiPayBtn">Pay ₹${total} via UPI Intent</button>
+    <div class="modal-actions">
+      <button class="btn-ghost" data-close="bookingModal">Cancel</button>
+      <button class="btn-primary" id="confirmUpiPayBtn">Pay ₹${total} via UPI</button>
     </div>
   `;
 
@@ -629,18 +565,13 @@ window.openBookingModal = function(spotId) {
     btn.addEventListener("click", () => document.getElementById("bookingModal").classList.add("hidden"));
   });
 
-  document.getElementById("confirmUpiPayBtn").addEventListener("click", () => {
-    confirmBooking(spot, total);
-  });
-
+  document.getElementById("confirmUpiPayBtn").addEventListener("click", () => confirmBooking(spot, total));
   document.getElementById("bookingModal").classList.remove("hidden");
 };
 
 function confirmBooking(spot, totalAmount) {
   const quota = spot.quotas[state.vehicleType];
-  if (quota && quota.occupied < quota.total) {
-    quota.occupied += 1;
-  }
+  if (quota && quota.occupied < quota.total) quota.occupied += 1;
 
   const code = `PE-${spot.state}-${Math.floor(1000 + Math.random() * 9000)}`;
   state.activeBooking = {
@@ -648,24 +579,20 @@ function confirmBooking(spot, totalAmount) {
     spotId: spot.id,
     stateName: spot.stateName,
     spotTitle: spot.title,
-    gateCoords: spot.gateCoords,
     gateInstructions: spot.gateInstructions,
     vehicleType: state.vehicleType,
     vehicleNumber: state.vehicleNumber,
-    duration: state.duration,
     amount: totalAmount,
     fallbackCode: code,
-    status: "CONFIRMED",
-    signature: btoa(`${code}|${spot.id}|${state.vehicleNumber}`).slice(0, 18)
+    status: "CONFIRMED"
   };
 
   state.ledger.gross += totalAmount;
-
   document.getElementById("bookingModal").classList.add("hidden");
   document.getElementById("passBadge").classList.remove("hidden");
   renderAll();
   openQrPassModal();
-  showToast(`ParkEase ${spot.stateName} pass confirmed! Offline QR generated.`);
+  showToast("Booking confirmed! Offline QR pass ready.");
 }
 
 function openQrPassModal() {
@@ -673,38 +600,35 @@ function openQrPassModal() {
   if (!b) return;
 
   document.getElementById("qrPassBody").innerHTML = `
-    <div class="qr-ticket">
-      <span class="badge-soft success">${b.status} • PARKEASE NCR (${b.stateName.toUpperCase()})</span>
+    <div class="qr-card">
+      <span class="status-badge success">${b.status} • ${b.stateName.toUpperCase()}</span>
       <h4 style="margin-top:8px;">${b.spotTitle}</h4>
-      <p class="spot-sub">${b.vehicleType} • <strong>${b.vehicleNumber}</strong></p>
+      <p class="card-sub">${b.vehicleType} • <strong>${b.vehicleNumber}</strong></p>
 
-      <div class="qr-svg-wrap">
+      <div class="qr-box">
         <svg viewBox="0 0 100 100" width="100%" height="100%">
           <rect width="100" height="100" fill="#fff"/>
           <rect x="8" y="8" width="26" height="26" fill="none" stroke="#0f172a" stroke-width="5"/>
-          <rect x="15" y="15" width="12" height="12" fill="#0f766e"/>
+          <rect x="15" y="15" width="12" height="12" fill="#0d9488"/>
           <rect x="66" y="8" width="26" height="26" fill="none" stroke="#0f172a" stroke-width="5"/>
-          <rect x="73" y="15" width="12" height="12" fill="#0f766e"/>
+          <rect x="73" y="15" width="12" height="12" fill="#0d9488"/>
           <rect x="8" y="66" width="26" height="26" fill="none" stroke="#0f172a" stroke-width="5"/>
-          <rect x="15" y="73" width="12" height="12" fill="#0f766e"/>
+          <rect x="15" y="73" width="12" height="12" fill="#0d9488"/>
           <path d="M44 12h12v12H44zm0 24h24v12H44zm-28 12h16v12H16zm48 16h24v24H64zm-20 8h12v16H44z" fill="#0f172a"/>
         </svg>
       </div>
 
-      <div class="fallback-code">${b.fallbackCode}</div>
-      <p class="spot-sub">Basement Offline Code (Guard can type if zero signal)</p>
-      <p style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#64748b; margin-top:4px;">
-        SIG: ${b.signature}
-      </p>
+      <div class="pass-code">${b.fallbackCode}</div>
+      <p class="card-sub">Offline basement verification code</p>
     </div>
 
-    <div class="gate-banner">
-      <strong>🚪 Entry Instructions:</strong> ${b.gateInstructions}
+    <div class="gate-note">
+      <strong>Gate Pin:</strong> ${b.gateInstructions}
     </div>
 
-    <div class="modal-footer">
-      <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.spotTitle + ' ' + b.stateName)}" target="_blank" rel="noopener">
-        Open Gate Pin in Google Maps ↗
+    <div class="modal-actions">
+      <a class="btn-ghost" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.spotTitle + ' ' + b.stateName)}" target="_blank" rel="noopener">
+        Google Maps ↗
       </a>
       <button class="btn-primary" data-close="qrPassModal">Done</button>
     </div>
@@ -713,13 +637,9 @@ function openQrPassModal() {
   document.querySelectorAll("#qrPassModal [data-close]").forEach(btn => {
     btn.addEventListener("click", () => document.getElementById("qrPassModal").classList.add("hidden"));
   });
-
   document.getElementById("qrPassModal").classList.remove("hidden");
 }
 
-// ============================================================================
-// Owner Console & Guard QR Check-In
-// ============================================================================
 function renderOwnerConsole() {
   const spot = listings.find(s => s.id === "PE-HR-201") || listings[0];
   const container = document.getElementById("ownerInventoryControls");
@@ -727,16 +647,16 @@ function renderOwnerConsole() {
 
   Object.entries(spot.quotas).forEach(([vType, data]) => {
     const row = document.createElement("div");
-    row.className = "inv-row";
+    row.className = "quota-row";
     row.innerHTML = `
       <div>
-        <strong>${vType} Reserved Pool</strong>
-        <div class="spot-sub">Occupied: ${data.occupied} / ${data.total} slots</div>
+        <strong>${vType} Pool</strong>
+        <p class="card-sub">${data.occupied} of ${data.total} occupied</p>
       </div>
-      <div class="counter-btns">
-        <button class="counter-btn" onclick="adjustSlot('${vType}', -1)" title="Vehicle Out">-1</button>
-        <strong>${data.total - data.occupied} Free</strong>
-        <button class="counter-btn" onclick="adjustSlot('${vType}', 1)" title="Vehicle In">+1</button>
+      <div class="stepper">
+        <button class="step-btn" onclick="adjustSlot('${vType}', -1)">-</button>
+        <strong>${data.total - data.occupied} free</strong>
+        <button class="step-btn" onclick="adjustSlot('${vType}', 1)">+</button>
       </div>
     `;
     container.appendChild(row);
@@ -758,7 +678,6 @@ window.adjustSlot = function(vType, delta) {
   const q = spot.quotas[vType];
   q.occupied = Math.min(q.total, Math.max(0, q.occupied + delta));
   renderAll();
-  showToast(`Updated ${vType} counter (${q.total - q.occupied} free)`);
 };
 
 function handleGuardScan() {
@@ -766,68 +685,52 @@ function handleGuardScan() {
   const log = document.getElementById("scanResultLog");
 
   if (!state.activeBooking || input !== state.activeBooking.fallbackCode) {
-    log.innerHTML = `<span style="color:var(--danger); font-weight:700;">✖ Invalid or expired token. Check fallback code.</span>`;
+    log.innerHTML = `<span style="color:var(--danger); font-weight:600;">Invalid code. Check driver pass.</span>`;
     return;
   }
 
   if (state.activeBooking.status === "CONFIRMED") {
     state.activeBooking.status = "CHECKED_IN";
-    log.innerHTML = `<span style="color:var(--live); font-weight:700;">✔ ENTRY LOGGED (${new Date().toLocaleTimeString()}) — ${state.activeBooking.vehicleNumber} verified offline.</span>`;
-    showToast("Driver Checked In! Entry timestamp synced.");
+    log.innerHTML = `<span style="color:var(--success); font-weight:600;">✔ Checked in ${state.activeBooking.vehicleNumber} at ${new Date().toLocaleTimeString()}</span>`;
+    showToast("Entry verified offline");
   } else if (state.activeBooking.status === "CHECKED_IN") {
     state.activeBooking.status = "COMPLETED";
     const spot = listings.find(s => s.id === state.activeBooking.spotId);
     if (spot && spot.quotas[state.activeBooking.vehicleType]) {
       spot.quotas[state.activeBooking.vehicleType].occupied = Math.max(0, spot.quotas[state.activeBooking.vehicleType].occupied - 1);
     }
-    log.innerHTML = `<span style="color:var(--accent); font-weight:700;">✔ EXIT LOGGED — Slot released back to pool & settlement queued.</span>`;
-    showToast("Driver Checked Out! Slot auto-released.");
-  } else {
-    log.innerHTML = `<span class="muted-text">Pass already completed.</span>`;
+    log.innerHTML = `<span style="color:var(--brand-dark); font-weight:600;">✔ Checked out & slot released back to pool.</span>`;
+    showToast("Exit logged & slot released");
   }
-
   renderAll();
 }
 
-// ============================================================================
-// Admin & Trust Ops Queue
-// ============================================================================
 function renderAdminQueues() {
   const approvalList = document.getElementById("approvalQueueList");
-  approvalList.innerHTML = "";
-
-  if (pendingApprovals.length === 0) {
-    approvalList.innerHTML = `<p class="muted-text">All New Delhi & Haryana KYC/NOC submissions reviewed.</p>`;
-  } else {
-    pendingApprovals.forEach((item, idx) => {
-      const div = document.createElement("div");
-      div.className = "queue-item";
-      div.innerHTML = `
+  approvalList.innerHTML = pendingApprovals.length === 0
+    ? `<p class="card-sub">All DL & HR submissions verified.</p>`
+    : pendingApprovals.map((item, idx) => `
+      <div class="queue-card">
         <div>
-          <span class="state-pill state-${item.state.toLowerCase()}">${item.stateName.toUpperCase()}</span>
-          <strong>${item.title}</strong> <span class="badge-soft">${item.id}</span>
-          <div class="spot-sub">Owner: ${item.ownerName} • ${item.panStatus} • <strong>${item.nocStatus}</strong></div>
-          <div class="spot-sub">Gate Note: "${item.instructions}"</div>
+          <span class="state-tag ${item.state.toLowerCase()}">${item.stateName.toUpperCase()}</span>
+          <strong>${item.title}</strong>
+          <p class="card-sub">${item.ownerName} • ${item.panStatus} • ${item.nocStatus}</p>
         </div>
-        <div>
-          <button class="btn-primary btn-sm" onclick="approveListing(${idx})">Approve & Publish</button>
-        </div>
-      `;
-      approvalList.appendChild(div);
-    });
-  }
+        <button class="btn-primary btn-sm" onclick="approveListing(${idx})">Approve</button>
+      </div>
+    `).join("");
 
   const bookingMonitor = document.getElementById("adminBookingsList");
   bookingMonitor.innerHTML = state.activeBooking
     ? `
-      <div class="queue-item">
+      <div class="queue-card">
         <div>
-          <strong>${state.activeBooking.bookingId} — ${state.activeBooking.spotTitle}</strong>
-          <div class="spot-sub">Region: ${state.activeBooking.stateName} • Vehicle: ${state.activeBooking.vehicleNumber} (${state.activeBooking.vehicleType}) • Paid: ₹${state.activeBooking.amount}</div>
+          <strong>${state.activeBooking.bookingId} • ${state.activeBooking.spotTitle}</strong>
+          <p class="card-sub">${state.activeBooking.stateName} • ${state.activeBooking.vehicleNumber} • ₹${state.activeBooking.amount}</p>
         </div>
-        <span class="badge-soft success">${state.activeBooking.status}</span>
+        <span class="status-badge success">${state.activeBooking.status}</span>
       </div>`
-    : `<p class="muted-text">No live bookings in current session. Book a spot in New Delhi or Haryana to monitor.</p>`;
+    : `<p class="card-sub">No active bookings in this session yet.</p>`;
 }
 
 window.approveListing = function(idx) {
@@ -840,22 +743,17 @@ window.approveListing = function(idx) {
     title: item.title,
     market: item.market,
     type: item.type,
-    landmark: isDl ? "South Delhi Micro-Market Hub" : "Gurugram Micro-Market Hub",
+    landmark: isDl ? "South Delhi Hub" : "Gurugram Hub",
     walkMins: 3,
-    driveMins: 2,
     confidence: "reserved",
-    confidenceLabel: "Reserved Inventory (Software)",
-    lastUpdated: "Just verified by NCR Ops",
-    verified: true,
-    nocVerified: true,
+    confidenceLabel: "Reserved Quota",
+    lastUpdated: "Just verified",
     covered: true,
     ev: false,
-    cctv: true,
-    guard: true,
     heightLimit: item.height,
     gateCoords: isDl ? "28.5494° N, 77.2001° E" : "28.4712° N, 77.0850° E",
     gateInstructions: item.instructions,
-    mapPos: isDl ? { top: "36%", left: "48%" } : { top: "64%", left: "54%" },
+    mapPos: isDl ? { top: "35%", left: "48%" } : { top: "64%", left: "54%" },
     rates: { hourly: item.hourly, daily: item.hourly * 5, monthly: item.hourly * 75 },
     quotas: {
       "2W": { total: item.slots * 2, occupied: 0 },
@@ -865,7 +763,7 @@ window.approveListing = function(idx) {
     }
   });
   renderAll();
-  showToast(`Approved "${item.title}"! Now live on ParkEase ${item.stateName} Map.`);
+  showToast(`Published "${item.title}" to ${item.stateName} map`);
 };
 
 function showToast(msg) {
@@ -873,5 +771,5 @@ function showToast(msg) {
   toast.textContent = msg;
   toast.classList.remove("hidden");
   clearTimeout(window._toastTimer);
-  window._toastTimer = setTimeout(() => toast.classList.add("hidden"), 3200);
+  window._toastTimer = setTimeout(() => toast.classList.add("hidden"), 3000);
 }
