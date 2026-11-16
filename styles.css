@@ -1,3 +1,4 @@
+/* ParkEase NCR (New Delhi & Haryana) Stylesheet */
 :root {
   --bg: #f4f6f9;
   --surface: #ffffff;
@@ -63,17 +64,60 @@ body {
   place-items: center;
 }
 
+.brand-title-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .brand-name {
-  display: block;
   font-weight: 800;
   font-size: 1.05rem;
   letter-spacing: -0.02em;
+}
+
+.region-badge {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 99px;
 }
 
 .brand-tag {
   display: block;
   font-size: 0.72rem;
   color: var(--text-muted);
+}
+
+/* Regional Pilot Banner */
+.ncr-banner {
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 0.8rem;
+  padding: 8px 24px;
+}
+
+.ncr-banner-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.expansion-pill {
+  background: rgba(45, 212, 191, 0.16);
+  color: #5eead4;
+  border: 1px solid rgba(45, 212, 191, 0.35);
+  padding: 2px 10px;
+  border-radius: 99px;
+  font-size: 0.74rem;
+  font-weight: 600;
 }
 
 .nav-tabs {
@@ -159,12 +203,6 @@ body {
 
 .btn-outline:hover {
   background: var(--surface-alt);
-}
-
-.btn-danger {
-  background: #fee2e2;
-  color: var(--danger);
-  border: 1px solid #fecaca;
 }
 
 .btn-sm {
@@ -256,7 +294,7 @@ body {
   background: var(--surface-alt);
   padding: 5px 11px;
   border-radius: 99px;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
   cursor: pointer;
 }
@@ -401,6 +439,25 @@ body {
   font-size: 1.02rem;
 }
 
+.state-pill {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+.state-dl {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.state-hr {
+  background: #fefce8;
+  color: #a16207;
+  border: 1px solid #fde047;
+}
+
 .verified-badge {
   background: #dcfce7;
   color: #15803d;
@@ -519,25 +576,57 @@ body {
 
 .simulated-map {
   position: relative;
-  height: 270px;
-  background-color: #e6eef4;
+  height: 290px;
+  background: linear-gradient(180deg, #dbeafe 0%, #dbeafe 48%, #fef9c3 52%, #fef9c3 100%);
   background-image:
-    linear-gradient(to right, rgba(255,255,255,0.7) 2px, transparent 2px),
-    linear-gradient(to bottom, rgba(255,255,255,0.7) 2px, transparent 2px);
-  background-size: 44px 44px;
+    linear-gradient(to right, rgba(255,255,255,0.65) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.65) 1px, transparent 1px),
+    linear-gradient(180deg, #e0f2fe 0%, #e0f2fe 49%, #fefce8 51%, #fefce8 100%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
   overflow: hidden;
+}
+
+.border-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 2px dashed rgba(15, 23, 42, 0.25);
+  pointer-events: none;
+}
+
+.state-zone {
+  position: absolute;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.zone-dl {
+  top: 10px;
+  left: 12px;
+  color: #1e40af;
+}
+
+.zone-hr {
+  bottom: 10px;
+  left: 12px;
+  color: #854d0e;
 }
 
 .map-landmark {
   position: absolute;
   background: rgba(15, 23, 42, 0.82);
   color: #fff;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  padding: 3px 8px;
+  padding: 3px 7px;
   border-radius: 6px;
   transform: translate(-50%, -50%);
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .map-pin {
@@ -547,7 +636,7 @@ body {
   border: 2px solid var(--primary);
   color: var(--text);
   font-weight: 800;
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   padding: 4px 8px;
   border-radius: 99px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
@@ -583,6 +672,20 @@ body {
   margin-bottom: 18px;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.kpi-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stat-pill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
 }
 
 .owner-grid, .admin-grid, .blueprint-grid {

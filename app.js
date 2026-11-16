@@ -1,29 +1,29 @@
 // ============================================================================
-// Safe Spot — Product Feature Blueprint Interactive Prototype
-// Implements: Confidence Levels, Last-100m Gate Pins, 2W/4W/SUV/EV Quotas,
-// Offline Signed QR Pass, Owner Counter, Split-Settlement Ledger & KYC/NOC Ops
+// ParkEase NCR — Regional Pilot Build (New Delhi & Haryana)
+// Phase 1 Micro-Markets: South/Central Delhi (DL) & Gurugram/Faridabad (HR)
+// Phase 2+ Roadmap: Expanding to UP, Maharashtra, Karnataka & Pan-India
 // ============================================================================
 
 const i18n = {
   en: {
-    tagline: "Verified Long-Tail Parking",
+    tagline: "Live in New Delhi & Haryana • Expanding Pan-India Soon",
     nav_driver: "Driver App",
     nav_owner: "Owner & Guard",
     nav_admin: "Trust & Ops",
-    nav_blueprint: "Blueprint & Stack",
-    hero_title: "Find verified parking near landmarks",
+    nav_blueprint: "NCR Strategy & Stack",
+    hero_title: "Verified parking across New Delhi & Haryana",
     hero_sub: "Software-verified slots • Exact entry-gate pins • Zero hardware delays",
     active_pass: "QR Pass",
     book_now: "Instant Book",
     gate_guidance: "Last-100m Gate Guidance"
   },
   hi: {
-    tagline: "सत्यापित लोकल पार्किंग",
+    tagline: "नई दिल्ली और हरियाणा में लाइव • जल्द पूरे भारत में विस्तार",
     nav_driver: "ड्राइवर ऐप",
     nav_owner: "मालिक और गार्ड",
     nav_admin: "ट्रस्ट और ऑप्स",
-    nav_blueprint: "ब्लूप्रिंट और स्टैक",
-    hero_title: "प्रमुख स्थानों के पास सत्यापित पार्किंग खोजें",
+    nav_blueprint: "रणनीति और स्टैक",
+    hero_title: "नई दिल्ली और हरियाणा में सत्यापित पार्किंग खोजें",
     hero_sub: "सत्यापित स्लॉट • सटीक एंट्री-गेट पिन • बिना हार्डवेयर देरी",
     active_pass: "QR पास",
     book_now: "तुरंत बुक करें",
@@ -31,17 +31,112 @@ const i18n = {
   }
 };
 
-// Initial Verified Micro-Market Supply (Gurugram Pilot Clusters)
+// Verified Micro-Market Supply strictly in New Delhi (DL) & Haryana (HR)
 let listings = [
   {
-    id: "SP-101",
-    title: "Shanti Niketan Society — Visitor Basement B1",
-    market: "office",
-    type: "Housing Society Spare Slot",
-    landmark: "Cyber Hub Tower B",
+    id: "PE-DL-101",
+    state: "DL",
+    stateName: "New Delhi",
+    title: "Saket J-Block Builder Floor Stilt & Courtyard",
+    market: "dl-south",
+    type: "Builder Floor / Stilt",
+    landmark: "Select Citywalk & Saket Metro Gate 2",
+    walkMins: 3,
+    driveMins: 2,
+    confidence: "reserved",
+    confidenceLabel: "Reserved Inventory (Software)",
+    lastUpdated: "Synced live with booking pool",
+    verified: true,
+    nocVerified: true,
+    covered: true,
+    ev: true,
+    cctv: true,
+    guard: true,
+    heightLimit: "2.15m (Fits SUV)",
+    gateCoords: "28.5286° N, 77.2193° E",
+    gateInstructions: "Enter J-Block service lane opposite Saket Metro Gate 2; green sliding gate #44. Show ParkEase QR.",
+    mapPos: { top: "40%", left: "38%" },
+    rates: { hourly: 60, daily: 260, monthly: 4200 },
+    quotas: {
+      "2W": { total: 8, occupied: 3 },
+      "4W": { total: 5, occupied: 2 },
+      "SUV": { total: 2, occupied: 1 },
+      "EV": { total: 2, occupied: 0 }
+    }
+  },
+  {
+    id: "PE-DL-102",
+    title: "Green Park Ext. Clinic Frontage (Near AIIMS)",
+    state: "DL",
+    stateName: "New Delhi",
+    market: "dl-central",
+    type: "Clinic / Shop Frontage",
+    landmark: "AIIMS Gate 1 & Safdarjung Hospital",
     walkMins: 4,
     driveMins: 3,
-    confidence: "reserved", // live | reserved | estimated
+    confidence: "estimated",
+    confidenceLabel: "Estimated (Likely Available)",
+    lastUpdated: "Owner updated 5 mins ago",
+    verified: true,
+    nocVerified: true,
+    covered: false,
+    ev: false,
+    cctv: true,
+    guard: true,
+    heightLimit: "Open Sky (No Height Limit)",
+    gateCoords: "28.5672° N, 77.2100° E",
+    gateInstructions: "Turn left at Green Park Main Market red light; park inside yellow-marked clinic bay.",
+    mapPos: { top: "30%", left: "66%" },
+    rates: { hourly: 50, daily: 220, monthly: 3600 },
+    quotas: {
+      "2W": { total: 10, occupied: 4 },
+      "4W": { total: 4, occupied: 2 },
+      "SUV": { total: 2, occupied: 1 },
+      "EV": { total: 0, occupied: 0 }
+    }
+  },
+  {
+    id: "PE-DL-103",
+    title: "Janpath Lane Commercial Rear Lot (CP)",
+    state: "DL",
+    stateName: "New Delhi",
+    market: "dl-central",
+    type: "Small Commercial Lot",
+    landmark: "Connaught Place Outer Circle / Janpath",
+    walkMins: 3,
+    driveMins: 2,
+    confidence: "live",
+    confidenceLabel: "Live (Partner Gate Counter)",
+    lastUpdated: "Real-time webhook",
+    verified: true,
+    nocVerified: true,
+    covered: false,
+    ev: true,
+    cctv: true,
+    guard: true,
+    heightLimit: "Open Lot",
+    gateCoords: "28.6271° N, 77.2190° E",
+    gateInstructions: "Entry from Tolstoy Marg cut towards Janpath; dedicated ParkEase lane on left.",
+    mapPos: { top: "18%", left: "44%" },
+    rates: { hourly: 70, daily: 300, monthly: 4800 },
+    quotas: {
+      "2W": { total: 18, occupied: 9 },
+      "4W": { total: 10, occupied: 6 },
+      "SUV": { total: 4, occupied: 2 },
+      "EV": { total: 2, occupied: 1 }
+    }
+  },
+  {
+    id: "PE-HR-201",
+    title: "Shanti Niketan RWA — Visitor Basement B1 (Gurugram)",
+    state: "HR",
+    stateName: "Haryana",
+    market: "hr-ggn",
+    type: "Housing Society Spare Slot",
+    landmark: "DLF Cyber Hub Tower B, Gurugram",
+    walkMins: 4,
+    driveMins: 3,
+    confidence: "reserved",
     confidenceLabel: "Reserved Inventory (Software)",
     lastUpdated: "Synced live with booking pool",
     verified: true,
@@ -52,8 +147,8 @@ let listings = [
     guard: true,
     heightLimit: "2.15m (Fits SUV)",
     gateCoords: "28.4951° N, 77.0888° E",
-    gateInstructions: "Take service lane behind Tower B; enter via Society Gate 2 (Blue board). Show QR to guard.",
-    mapPos: { top: "30%", left: "38%" },
+    gateInstructions: "Take service lane behind Tower B; enter via Society Gate 2 (Blue board). Show ParkEase QR to guard.",
+    mapPos: { top: "62%", left: "24%" },
     rates: { hourly: 50, daily: 240, monthly: 3800 },
     quotas: {
       "2W": { total: 10, occupied: 4 },
@@ -63,11 +158,13 @@ let listings = [
     }
   },
   {
-    id: "SP-102",
-    title: "CarePlus Diagnostic Clinic Frontage & Courtyard",
-    market: "hospital",
+    id: "PE-HR-202",
+    title: "CarePlus Diagnostic Courtyard (Sector 38, Gurugram)",
+    state: "HR",
+    stateName: "Haryana",
+    market: "hr-ggn",
     type: "Clinic / Shop Frontage",
-    landmark: "Medanta Hospital Gate 2",
+    landmark: "Medanta The Medicity Gate 2, Gurugram",
     walkMins: 2,
     driveMins: 2,
     confidence: "estimated",
@@ -82,21 +179,23 @@ let listings = [
     heightLimit: "Open Sky (No Height Limit)",
     gateCoords: "28.4394° N, 77.0412° E",
     gateInstructions: "Turn left 80m before Medanta Gate 2 traffic light. Park diagonally inside yellow markings.",
-    mapPos: { top: "62%", left: "54%" },
+    mapPos: { top: "78%", left: "44%" },
     rates: { hourly: 40, daily: 180, monthly: 3000 },
     quotas: {
       "2W": { total: 12, occupied: 5 },
       "4W": { total: 5, occupied: 3 },
-      "SUV": { total: 2, occupied: 2 },
+      "SUV": { total: 2, occupied: 1 },
       "EV": { total: 0, occupied: 0 }
     }
   },
   {
-    id: "SP-103",
-    title: "DLF Phase 4 — Villa C-118 Covered Stilt",
-    market: "residential",
-    type: "Private Garage / Stilt",
-    landmark: "Galleria Market",
+    id: "PE-HR-203",
+    title: "Sector 15 Market Rear Plaza & Stilt (Faridabad)",
+    state: "HR",
+    stateName: "Haryana",
+    market: "hr-fbd",
+    type: "Small Commercial Lot",
+    landmark: "Faridabad Sector 15 Market & Metro",
     walkMins: 3,
     driveMins: 2,
     confidence: "reserved",
@@ -105,62 +204,50 @@ let listings = [
     verified: true,
     nocVerified: true,
     covered: true,
-    ev: true,
-    cctv: true,
-    guard: false,
-    heightLimit: "2.05m (Hatchback / Sedan / Compact SUV)",
-    gateCoords: "28.4678° N, 77.0821° E",
-    gateInstructions: "Green sliding gate opposite Galleria Post Office lane. Ring bell #2 or scan QR on keypad.",
-    mapPos: { top: "48%", left: "70%" },
-    rates: { hourly: 60, daily: 260, monthly: 4200 },
-    quotas: {
-      "2W": { total: 4, occupied: 1 },
-      "4W": { total: 3, occupied: 1 },
-      "SUV": { total: 1, occupied: 0 },
-      "EV": { total: 1, occupied: 0 }
-    }
-  },
-  {
-    id: "SP-104",
-    title: "Metro Pillar 48 Commercial Lot (Partner Gate)",
-    market: "office",
-    type: "Small Commercial Lot",
-    landmark: "Cyber Hub / Moulsari Ave",
-    walkMins: 5,
-    driveMins: 4,
-    confidence: "live",
-    confidenceLabel: "Live (Partner Gate Counter)",
-    lastUpdated: "Real-time webhook",
-    verified: true,
-    nocVerified: true,
-    covered: false,
     ev: false,
     cctv: true,
     guard: true,
-    heightLimit: "Open Lot",
-    gateCoords: "28.4910° N, 77.0925° E",
-    gateInstructions: "Entry directly adjacent to Pillar 48 U-turn. Dedicated Safe Spot lane on extreme left.",
-    mapPos: { top: "24%", left: "58%" },
-    rates: { hourly: 45, daily: 200, monthly: 3400 },
+    heightLimit: "2.10m",
+    gateCoords: "28.3964° N, 77.3189° E",
+    gateInstructions: "Enter from Sector 15A divider road beside Post Office; show ParkEase QR at booth.",
+    mapPos: { top: "68%", left: "78%" },
+    rates: { hourly: 35, daily: 150, monthly: 2500 },
     quotas: {
-      "2W": { total: 25, occupied: 11 },
-      "4W": { total: 14, occupied: 9 },
-      "SUV": { total: 6, occupied: 4 },
+      "2W": { total: 15, occupied: 6 },
+      "4W": { total: 8, occupied: 3 },
+      "SUV": { total: 3, occupied: 1 },
       "EV": { total: 0, occupied: 0 }
     }
   }
 ];
 
-// Pending Owner Submissions for Admin Trust Queue
+// Pending Owner Submissions for NCR Admin Trust Queue
 let pendingApprovals = [
   {
-    id: "KYC-209",
+    id: "KYC-DL-304",
+    state: "DL",
+    stateName: "New Delhi",
+    ownerName: "Vikramaditya Kapoor",
+    title: "C-14 Hauz Khas Enclave Ground Stilt, New Delhi",
+    market: "dl-south",
+    type: "Builder Floor / Stilt",
+    panStatus: "PAN & Penny-Drop Verified",
+    nocStatus: "Hauz Khas RWA NOC Uploaded",
+    hourly: 55,
+    slots: 2,
+    height: "2.1m",
+    instructions: "Enter via Gate 1 opposite Deer Park side lane; second stilt bay."
+  },
+  {
+    id: "KYC-HR-309",
+    state: "HR",
+    stateName: "Haryana",
     ownerName: "Rajeshwar Malhotra",
-    title: "A-19 Rosewood City Stilt Parking",
-    market: "residential",
+    title: "A-19 Rosewood City Stilt Parking, Gurugram",
+    market: "hr-ggn",
     type: "Housing Society Spare Slot",
     panStatus: "PAN & Penny-Drop Verified",
-    nocStatus: "Society RWA NOC Uploaded",
+    nocStatus: "Gurugram RWA NOC Uploaded",
     hourly: 40,
     slots: 2,
     height: "2.1m",
@@ -173,17 +260,18 @@ let state = {
   lang: "en",
   vehicleType: "4W",
   vehicleNumber: "HR26 EQ 9012",
+  selectedState: "all",
   selectedMarket: "all",
   searchQuery: "",
   duration: "hourly",
   filterCovered: false,
   filterEv: false,
   filterAvailable: true,
-  selectedSpotId: "SP-101",
+  selectedSpotId: "PE-DL-101",
   activeBooking: null,
   ownerLotFull: false,
   ledger: {
-    gross: 14850,
+    gross: 18450,
     commissionRate: 0.15,
     gstRate: 0.18
   }
@@ -229,7 +317,7 @@ function bindNavigation() {
 
   document.getElementById("myPassBtn").addEventListener("click", () => {
     if (!state.activeBooking) {
-      showToast("No active pass yet. Book a parking spot first!");
+      showToast("No active pass yet. Book a parking spot in Delhi or Haryana first!");
       return;
     }
     openQrPassModal();
@@ -250,6 +338,11 @@ function bindFilters() {
       state.selectedMarket = chip.dataset.market;
       renderListings();
     });
+  });
+
+  document.getElementById("stateFilter").addEventListener("change", (e) => {
+    state.selectedState = e.target.value;
+    renderListings();
   });
 
   document.getElementById("landmarkSearch").addEventListener("input", (e) => {
@@ -283,7 +376,7 @@ function bindOwnerActions() {
   document.getElementById("emergencyFullToggle").addEventListener("change", (e) => {
     state.ownerLotFull = e.target.checked;
     renderAll();
-    showToast(state.ownerLotFull ? "Lot marked FULL across driver map" : "Lot reopened for bookings");
+    showToast(state.ownerLotFull ? "Lot marked FULL across NCR driver map" : "Lot reopened for bookings");
   });
 
   document.getElementById("openOnboardModalBtn").addEventListener("click", () => {
@@ -292,14 +385,18 @@ function bindOwnerActions() {
 
   document.getElementById("onboardForm").addEventListener("submit", (e) => {
     e.preventDefault();
+    const st = document.getElementById("newState").value;
+    const stName = st === "DL" ? "New Delhi" : "Haryana";
     const newItem = {
-      id: `KYC-${Math.floor(300 + Math.random() * 600)}`,
+      id: `KYC-${st}-${Math.floor(300 + Math.random() * 600)}`,
+      state: st,
+      stateName: stName,
       ownerName: "Arijit Chatterjee (Demo Owner)",
       title: document.getElementById("newTitle").value,
       market: document.getElementById("newMarket").value,
       type: document.getElementById("newType").value,
       panStatus: "PAN & Bank Penny-Drop Verified",
-      nocStatus: "Society NOC Document Attached",
+      nocStatus: `${stName} RWA NOC Attached`,
       hourly: Number(document.getElementById("newHourlyRate").value),
       slots: Number(document.getElementById("newSlots").value),
       height: document.getElementById("newHeight").value,
@@ -309,7 +406,7 @@ function bindOwnerActions() {
     document.getElementById("onboardModal").classList.add("hidden");
     e.target.reset();
     renderAdminQueues();
-    showToast("Submitted to Trust & Ops Queue for KYC/NOC verification!");
+    showToast(`Submitted ${stName} space to NCR Trust & Ops Queue!`);
   });
 
   document.getElementById("fillActiveCodeBtn").addEventListener("click", () => {
@@ -343,7 +440,7 @@ function applyTranslations() {
 }
 
 function getAvailableSlots(spot, vehicleType) {
-  if (state.ownerLotFull && spot.id === "SP-101") return 0;
+  if (state.ownerLotFull && spot.id === "PE-HR-201") return 0;
   const q = spot.quotas[vehicleType];
   if (!q) return 0;
   return Math.max(0, q.total - q.occupied);
@@ -356,26 +453,33 @@ function renderListings() {
   pinsContainer.innerHTML = "";
 
   const filtered = listings.filter(spot => {
+    if (state.selectedState !== "all" && spot.state !== state.selectedState) return false;
     if (state.selectedMarket !== "all" && spot.market !== state.selectedMarket) return false;
     if (state.filterCovered && !spot.covered) return false;
     if (state.filterEv && !spot.ev) return false;
     const avail = getAvailableSlots(spot, state.vehicleType);
     if (state.filterAvailable && avail <= 0) return false;
     if (state.searchQuery) {
-      const hay = `${spot.title} ${spot.landmark} ${spot.gateInstructions}`.toLowerCase();
+      const hay = `${spot.title} ${spot.landmark} ${spot.stateName} ${spot.gateInstructions}`.toLowerCase();
       if (!hay.includes(state.searchQuery)) return false;
     }
     return true;
   });
 
+  const regionText = state.selectedState === "DL"
+    ? "New Delhi (DL)"
+    : state.selectedState === "HR"
+      ? "Haryana (HR)"
+      : "New Delhi & Haryana";
+
   document.getElementById("resultsCount").textContent =
-    `Showing ${filtered.length} verified spot${filtered.length === 1 ? "" : "s"} for ${state.vehicleType}`;
+    `Showing ${filtered.length} verified spot${filtered.length === 1 ? "" : "s"} in ${regionText} for ${state.vehicleType}`;
 
   if (filtered.length === 0) {
     container.innerHTML = `
       <div class="card">
-        <h3>No matching slots for ${state.vehicleType}</h3>
-        <p class="muted-text">Try switching vehicle type or unchecking filters to view nearby alternatives.</p>
+        <h3>No matching slots in ${regionText} for ${state.vehicleType}</h3>
+        <p class="muted-text">Try switching state filter (DL / HR), vehicle type, or unchecking filters.</p>
       </div>`;
     return;
   }
@@ -391,7 +495,7 @@ function renderListings() {
     pin.className = `map-pin ${isSelected ? "active" : ""}`;
     pin.style.top = spot.mapPos.top;
     pin.style.left = spot.mapPos.left;
-    pin.textContent = `₹${rate}`;
+    pin.textContent = `${spot.state} • ₹${rate}`;
     pin.addEventListener("click", () => {
       state.selectedSpotId = spot.id;
       renderListings();
@@ -406,6 +510,7 @@ function renderListings() {
       <div class="spot-top">
         <div>
           <div class="spot-title-row">
+            <span class="state-pill state-${spot.state.toLowerCase()}">${spot.stateName.toUpperCase()} (${spot.state})</span>
             <span class="spot-title">${spot.title}</span>
             <span class="verified-badge">✔ KYC + NOC</span>
           </div>
@@ -463,11 +568,11 @@ function renderMapPreview() {
   const avail = getAvailableSlots(spot, state.vehicleType);
 
   preview.innerHTML = `
-    <div style="display:flex; justify-content:space-between; align-items:center;">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
       <strong>${spot.title}</strong>
-      <span class="badge-soft">${spot.gateCoords}</span>
+      <span class="state-pill state-${spot.state.toLowerCase()}">${spot.stateName}</span>
     </div>
-    <p class="spot-sub" style="margin-top:4px;">${spot.lastUpdated}</p>
+    <p class="spot-sub" style="margin-top:4px;">Gate GPS: ${spot.gateCoords} • ${spot.lastUpdated}</p>
     <div class="gate-banner">
       <strong>📍 Entry Gate Pin (Separate from Building):</strong><br/>
       ${spot.gateInstructions}
@@ -495,9 +600,10 @@ window.openBookingModal = function(spotId) {
   const gst = Math.round(platformFee * 0.18);
   const total = basePrice + platformFee + gst;
 
-  document.getElementById("modalSpotTitle").textContent = `Confirm ${state.vehicleType} Pass — ${spot.title}`;
+  document.getElementById("modalSpotTitle").textContent = `Confirm ${state.vehicleType} Pass — ${spot.stateName}`;
   document.getElementById("bookingModalBody").innerHTML = `
     <div class="gate-callout">
+      <strong>Location:</strong> ${spot.title} (${spot.stateName})<br/>
       <strong>Gate Pin:</strong> ${spot.gateCoords}<br/>
       <strong>Vehicle:</strong> ${state.vehicleType} (${state.vehicleNumber}) • <strong>Clearance:</strong> ${spot.heightLimit}
     </div>
@@ -531,16 +637,16 @@ window.openBookingModal = function(spotId) {
 };
 
 function confirmBooking(spot, totalAmount) {
-  // Atomic inventory decrement simulation
   const quota = spot.quotas[state.vehicleType];
   if (quota && quota.occupied < quota.total) {
     quota.occupied += 1;
   }
 
-  const code = `SS-${Math.floor(1000 + Math.random() * 9000)}`;
+  const code = `PE-${spot.state}-${Math.floor(1000 + Math.random() * 9000)}`;
   state.activeBooking = {
-    bookingId: `BK-${Date.now().toString().slice(-6)}`,
+    bookingId: `BK-${spot.state}-${Date.now().toString().slice(-5)}`,
     spotId: spot.id,
+    stateName: spot.stateName,
     spotTitle: spot.title,
     gateCoords: spot.gateCoords,
     gateInstructions: spot.gateInstructions,
@@ -549,18 +655,17 @@ function confirmBooking(spot, totalAmount) {
     duration: state.duration,
     amount: totalAmount,
     fallbackCode: code,
-    status: "CONFIRMED", // CONFIRMED -> CHECKED_IN -> COMPLETED
+    status: "CONFIRMED",
     signature: btoa(`${code}|${spot.id}|${state.vehicleNumber}`).slice(0, 18)
   };
 
-  // Update owner split-settlement ledger
   state.ledger.gross += totalAmount;
 
   document.getElementById("bookingModal").classList.add("hidden");
   document.getElementById("passBadge").classList.remove("hidden");
   renderAll();
   openQrPassModal();
-  showToast("Booking confirmed! WhatsApp & Offline QR Pass generated.");
+  showToast(`ParkEase ${spot.stateName} pass confirmed! Offline QR generated.`);
 }
 
 function openQrPassModal() {
@@ -569,7 +674,7 @@ function openQrPassModal() {
 
   document.getElementById("qrPassBody").innerHTML = `
     <div class="qr-ticket">
-      <span class="badge-soft success">${b.status} • SIGNED TOKEN</span>
+      <span class="badge-soft success">${b.status} • PARKEASE NCR (${b.stateName.toUpperCase()})</span>
       <h4 style="margin-top:8px;">${b.spotTitle}</h4>
       <p class="spot-sub">${b.vehicleType} • <strong>${b.vehicleNumber}</strong></p>
 
@@ -598,7 +703,7 @@ function openQrPassModal() {
     </div>
 
     <div class="modal-footer">
-      <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=Cyber+Hub+Gurugram" target="_blank" rel="noopener">
+      <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.spotTitle + ' ' + b.stateName)}" target="_blank" rel="noopener">
         Open Gate Pin in Google Maps ↗
       </a>
       <button class="btn-primary" data-close="qrPassModal">Done</button>
@@ -616,7 +721,7 @@ function openQrPassModal() {
 // Owner Console & Guard QR Check-In
 // ============================================================================
 function renderOwnerConsole() {
-  const spot = listings[0]; // Managing primary demo property SP-101
+  const spot = listings.find(s => s.id === "PE-HR-201") || listings[0];
   const container = document.getElementById("ownerInventoryControls");
   container.innerHTML = "";
 
@@ -637,7 +742,6 @@ function renderOwnerConsole() {
     container.appendChild(row);
   });
 
-  // Update Split-Settlement KPIs
   const gross = state.ledger.gross;
   const comm = Math.round(gross * state.ledger.commissionRate);
   const gst = Math.round(comm * state.ledger.gstRate);
@@ -650,7 +754,8 @@ function renderOwnerConsole() {
 }
 
 window.adjustSlot = function(vType, delta) {
-  const q = listings[0].quotas[vType];
+  const spot = listings.find(s => s.id === "PE-HR-201") || listings[0];
+  const q = spot.quotas[vType];
   q.occupied = Math.min(q.total, Math.max(0, q.occupied + delta));
   renderAll();
   showToast(`Updated ${vType} counter (${q.total - q.occupied} free)`);
@@ -692,13 +797,14 @@ function renderAdminQueues() {
   approvalList.innerHTML = "";
 
   if (pendingApprovals.length === 0) {
-    approvalList.innerHTML = `<p class="muted-text">All KYC & Society NOC submissions reviewed.</p>`;
+    approvalList.innerHTML = `<p class="muted-text">All New Delhi & Haryana KYC/NOC submissions reviewed.</p>`;
   } else {
     pendingApprovals.forEach((item, idx) => {
       const div = document.createElement("div");
       div.className = "queue-item";
       div.innerHTML = `
         <div>
+          <span class="state-pill state-${item.state.toLowerCase()}">${item.stateName.toUpperCase()}</span>
           <strong>${item.title}</strong> <span class="badge-soft">${item.id}</span>
           <div class="spot-sub">Owner: ${item.ownerName} • ${item.panStatus} • <strong>${item.nocStatus}</strong></div>
           <div class="spot-sub">Gate Note: "${item.instructions}"</div>
@@ -717,26 +823,29 @@ function renderAdminQueues() {
       <div class="queue-item">
         <div>
           <strong>${state.activeBooking.bookingId} — ${state.activeBooking.spotTitle}</strong>
-          <div class="spot-sub">Vehicle: ${state.activeBooking.vehicleNumber} (${state.activeBooking.vehicleType}) • Paid: ₹${state.activeBooking.amount}</div>
+          <div class="spot-sub">Region: ${state.activeBooking.stateName} • Vehicle: ${state.activeBooking.vehicleNumber} (${state.activeBooking.vehicleType}) • Paid: ₹${state.activeBooking.amount}</div>
         </div>
         <span class="badge-soft success">${state.activeBooking.status}</span>
       </div>`
-    : `<p class="muted-text">No live bookings in current session. Book a spot in Driver App to monitor.</p>`;
+    : `<p class="muted-text">No live bookings in current session. Book a spot in New Delhi or Haryana to monitor.</p>`;
 }
 
 window.approveListing = function(idx) {
   const item = pendingApprovals.splice(idx, 1)[0];
+  const isDl = item.state === "DL";
   listings.unshift({
-    id: `SP-${Math.floor(200 + Math.random() * 700)}`,
+    id: `PE-${item.state}-${Math.floor(200 + Math.random() * 700)}`,
+    state: item.state,
+    stateName: item.stateName,
     title: item.title,
     market: item.market,
     type: item.type,
-    landmark: "Nearby Micro-Market Hub",
+    landmark: isDl ? "South Delhi Micro-Market Hub" : "Gurugram Micro-Market Hub",
     walkMins: 3,
     driveMins: 2,
     confidence: "reserved",
     confidenceLabel: "Reserved Inventory (Software)",
-    lastUpdated: "Just verified by Ops",
+    lastUpdated: "Just verified by NCR Ops",
     verified: true,
     nocVerified: true,
     covered: true,
@@ -744,9 +853,9 @@ window.approveListing = function(idx) {
     cctv: true,
     guard: true,
     heightLimit: item.height,
-    gateCoords: "28.4712° N, 77.0850° E",
+    gateCoords: isDl ? "28.5494° N, 77.2001° E" : "28.4712° N, 77.0850° E",
     gateInstructions: item.instructions,
-    mapPos: { top: "52%", left: "46%" },
+    mapPos: isDl ? { top: "36%", left: "48%" } : { top: "64%", left: "54%" },
     rates: { hourly: item.hourly, daily: item.hourly * 5, monthly: item.hourly * 75 },
     quotas: {
       "2W": { total: item.slots * 2, occupied: 0 },
@@ -756,7 +865,7 @@ window.approveListing = function(idx) {
     }
   });
   renderAll();
-  showToast(`Approved "${item.title}"! Now live on Driver Map.`);
+  showToast(`Approved "${item.title}"! Now live on ParkEase ${item.stateName} Map.`);
 };
 
 function showToast(msg) {
